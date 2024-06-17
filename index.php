@@ -49,17 +49,14 @@
 
             // Boucle pour parcourir les lignes et envoyer des emails
             foreach ($sheet->getRowIterator() as $row) {
-                // Exemple : obtenir la valeur de la cellule qui contient le code client 
                 $code_client = $sheet->getCell('H'.$row->getRowIndex())->getValue();
                 $reglement = $sheet->getCell('AM'.$row->getRowIndex())->getValue();
 
-                // Vérifier la condition pour arrêter l'envoi d'e-mails
                 if ($reglement == 1) {
                     echo "Arrêt du processus d'envoi d'e-mails.";
                     break;
                 }
 
-                // Si la valeur est 0, continuez à traiter cet envoi d'email
                 if ($reglement == 0) {
                     // Requête SQL pour récupérer l'email du client en fonction du code client
                     $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE code = :code_client");
@@ -69,7 +66,6 @@
 
                     // Vérifier si l'email a été trouvé dans la base de données
                     if ($email) {
-                        // Exemple simplifié pour envoyer un e-mail (utilisation de la fonction mail() de PHP)
                         $email_client = $email;
                         $subject = 'Objet de l\'email';
                         $message = 'Contenu du message';
@@ -88,7 +84,6 @@
         } catch (Exception $e) {
             echo "Erreur : " . $e->getMessage();
         } finally {
-            // Fermer la connexion à la base de données
             $conn = null;
         }
     ?>
