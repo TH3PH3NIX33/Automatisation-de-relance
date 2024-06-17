@@ -26,50 +26,53 @@
         require 'vendor/autoload.php';
 
         use PhpOffice\PhpSpreadsheet\IOFactory;
-
+        
         // Chemin vers votre fichier Excel
         $filePath = 'LISTING_FACT.xlsx';
-
-        // Charger le fichier Excel
-        $spreadsheet = IOFactory::load($filePath);
-
-        // Sélectionner la feuille (0 pour la première feuille)
-        $sheet = $spreadsheet->getSheet(0);
-
-        // Lire la valeur de la cellule 
-        $cellValue = $sheet->getCell('H2')->getValue();
-
-        $servername = "localhost";
-        $username = "root";
-        $password = ""; // Laissez vide si c'est le cas
-        $dbname = "client_adex_logistique"; // Utilisez des underscores pour éviter les problèmes d'espaces
-
+        
         try {
-            // Établir une connexion à la base de données
+            // Charger le fichier Excel
+            $spreadsheet = IOFactory::load($filePath);
+            // Sélectionner la feuille (0 pour la première feuille)
+            $sheet = $spreadsheet->getSheet(0);
+        
+            // Exemple : obtenir la valeur de la cellule qui contient le code client (par exemple, cellule H2)
+            $code_client = $sheet->getCell('H2')->getValue();
+        
+            // Vérifiez que le code client a été trouvé dans le fichier Excel
+            if (empty($code_client)) {
+                throw new Exception('Code client introuvable dans le fichier Excel.');
+            }
+        
+            // Informations de connexion à la base de données
+            $servername = "localhost";
+            $username = "root";
+            $password = ""; // Laissez vide si c'est le cas
+            $dbname = "votre_base_de_donnees"; // Assurez-vous d'utiliser le nom correct de votre base de données
+        
+            // Créer une connexion PDO
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             // Définir le mode d'erreur de PDO sur Exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            echo "Connexion réussie à la base de données.<br>";
         
             // Préparer la requête SQL
-            $codeClient = $cellValue;
-            $stmt = $conn->prepare("SELECT COL 16 FROM liste_des_clients__404_ WHERE code_client = :code_client");
-            $stmt->bindParam(':code_client', $codeClient);
-            
+            $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients__404_ WHERE code_client = :code_client");
+            $stmt->bindParam(':code_client', $code_client);
+        
+            // Exécuter la requête
             $stmt->execute();
-            
+        
             // Récupérer le résultat
-            $email = null; // Initialiser la variable pour stocker l'email
-            if ($stmt->rowCount() > 0) {
-                // La ligne existe, récupérer la valeur de l'email
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                $email = $row['email'];
-                echo "L'email du client est : " . $email;
+            $email = $stmt->fetchColumn();
+        
+            if ($email) {
+                echo "L'email du client avec le code client $code_client est : $email";
             } else {
-                echo "Aucun client trouvé avec le code client spécifié.";
+                echo "Aucun email trouvé pour le code client $code_client";
             }
-        } catch(PDOException $e) {
+        } catch (Exception $e) {
+            echo "Erreur : " . $e->getMessage();
+        } catch (PDOException $e) {
             echo "La connexion a échoué : " . $e->getMessage();
         }
         
