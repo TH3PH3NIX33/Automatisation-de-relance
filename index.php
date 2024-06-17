@@ -19,8 +19,7 @@
         <h2>Contenu principal de votre site</h2>
         <p>Ici vous pouvez ajouter vos informations, vos services, etc.</p>
     </section>
-    <section id="services">
-        <h2>Services</h2>
+    <section>
         <div>
             <h3>Mise à jour du fichier Excel</h3>
             <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -35,7 +34,36 @@
         <p>&copy; 2024 Adex Logistique. Tous droits réservés.</p>
     </footer>
     <?php
-        $monEmail = "Thibaudlemono@gmail.com";
+        require 'vendor/autoload.php';
+        use PhpOffice\PhpSpreadsheet\IOFactory;
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+
+        // Configurations SMTP pour différentes adresses email
+        $smtpConfigurations = [
+            'Thibaudlemono@gmail.com' => [
+                'host' => 'smtp.gmail.com',
+                'port' => 587,
+                'username' => 'your-gmail-address@gmail.com',
+                'password' => 'your-gmail-password',
+                'smtp_secure' => 'tls', // SSL ou TLS selon le serveur
+                'from_address' => 'your-gmail-address@gmail.com',
+                'from_name' => 'Votre Nom'
+            ],
+            '2mbi@2mbi.fr' => [
+                'host' => 'smtp.example.com',
+                'port' => 25,
+                'username' => 'your-email@your-domain.com',
+                'password' => 'your-password',
+                'smtp_secure' => '', // SSL ou TLS selon le serveur
+                'from_address' => 'your-email@your-domain.com',
+                'from_name' => 'Votre Nom'
+            ],
+
+        ];
+
+        // Adresse email à utiliser pour l'envoi (peut être récupérée dynamiquement)
+        $monEmail = 'Thibaud.lauber67000@gmail.com';
 
         // Vérifier si le formulaire a été soumis pour l'upload du fichier
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +85,6 @@
                     if (move_uploaded_file($_FILES["excelFile"]["tmp_name"], $target_file)) {
                         echo "Le fichier " . basename($_FILES["excelFile"]["name"]) . " a été téléchargé avec succès.";
 
-                        // Redirection vers la page principale après l'upload (ou autre traitement)
                         header("Location: index.php");
                         exit;
                     } else {
@@ -68,9 +95,6 @@
                 echo "Aucun fichier n'a été téléchargé ou une erreur est survenue.";
             }
         }
-
-        require 'vendor/autoload.php';
-        use PhpOffice\PhpSpreadsheet\IOFactory;
 
         $filePath = 'LISTING_FACT.xlsx';
 
@@ -109,19 +133,36 @@
                     $email = $stmt->fetchColumn();
 
                     // Vérifier si l'email a été trouvé dans la base de données
-                    if ($email) {
-                        $email_client = $email;
-                        $subject = 'Objet de l\'email';
-                        $message = 'Contenu du message';
+                    if ($email && isset($smtpConfigurations[$monEmail])) {
+                        $config = $smtpConfigurations[$monEmail];
+
+                        // Création de l'objet PHPMailer
+                        $mail = new PHPMailer(true);
+
+                        // Paramètres SMTP
+                        $mail->isSMTP();
+                        $mail->Host = $config['host'];
+                        $mail->Port = $config['port'];
+                        $mail->SMTPAuth = true;
+                        $mail->Username = $config['username'];
+                        $mail->Password = $config['password'];
+                        $mail->SMTPSecure = $config['smtp_secure']; // SSL ou TLS selon le serveur
+
+                        $mail->setFrom($config['from_address'], $config['from_name']);
+                        $mail->addAddress($email);
+
+                        $mail->isHTML(true); // Définir le format de l'email en HTML
+                        $mail->Subject = 'Objet de l\'email';
+                        $mail->Body = 'Contenu du message';
 
                         // Envoyer l'e-mail
-                        if (mail($monEmail, $subject, $message)) {
-                            echo "E-mail envoyé à $monEmail";
+                        if ($mail->send()) {
+                            echo "E-mail envoyé à $email";
                         } else {
-                            echo "Échec de l'envoi de l'e-mail à $monEmail";
+                            echo "Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo;
                         }
                     } else {
-                        echo "Aucun email trouvé pour le code client $code_client";
+                        echo "Aucun email trouvé pour le code client $code_client ou configuration SMTP non trouvée.";
                     }
                 }
             }
