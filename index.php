@@ -1,5 +1,3 @@
-test
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,13 +36,24 @@ test
             // Sélectionner la feuille (0 pour la première feuille)
             $sheet = $spreadsheet->getSheet(0);
 
+            // Informations de connexion à la base de données
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "client_adex_logistique";
+
+            // Créer une connexion PDO
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // Définir le mode d'erreur de PDO sur Exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
             // Boucle pour parcourir les lignes et envoyer des emails
             foreach ($sheet->getRowIterator() as $row) {
                 // Exemple : obtenir la valeur de la cellule qui contient le code client (par exemple, cellule H2)
                 $code_client = $sheet->getCell('H'.$row->getRowIndex())->getValue();
-                $valeur_condition = $sheet->getCell('AM'.$row->getRowIndex())->getValue(); // Supposons que la condition soit dans la colonne A
+                $valeur_condition = $sheet->getCell('A'.$row->getRowIndex())->getValue(); // Supposons que la condition soit dans la colonne A
 
-                // Vérifiez la condition pour arrêter l'envoi d'e-mails
+                // Vérifier la condition pour arrêter l'envoi d'e-mails
                 if ($valeur_condition == 1) {
                     echo "La condition est remplie (valeur = 1), arrêt du processus d'envoi d'e-mails.";
                     break;
@@ -52,24 +61,35 @@ test
 
                 // Si la valeur est 0, continuez à traiter cet envoi d'email
                 if ($valeur_condition == 0) {
-                    // Exécutez le reste de votre code pour récupérer l'email du client et l'envoyer
-                    // Connexion à la base de données et récupération de l'email comme dans votre exemple précédent
+                    // Requête SQL pour récupérer l'email du client en fonction du code client
+                    $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE code = :code_client");
+                    $stmt->bindParam(':code_client', $code_client);
+                    $stmt->execute();
+                    $email = $stmt->fetchColumn();
 
-                    // Exemple simplifié pour envoyer un e-mail (utilisation de la fonction mail() de PHP)
-                    $to = $email; // Supposons que $email contient l'adresse email du client
-                    $subject = 'Objet de l\'email';
-                    $message = 'Contenu du message';
+                    // Vérifier si l'email a été trouvé dans la base de données
+                    if ($email) {
+                        // Exemple simplifié pour envoyer un e-mail (utilisation de la fonction mail() de PHP)
+                        $to = $email;
+                        $subject = 'Objet de l\'email';
+                        $message = 'Contenu du message';
 
-                    // Envoyer l'e-mail
-                    if (mail($to, $subject, $message)) {
-                        echo "E-mail envoyé à $to";
+                        // Envoyer l'e-mail
+                        if (mail($to, $subject, $message)) {
+                            echo "E-mail envoyé à $to";
+                        } else {
+                            echo "Échec de l'envoi de l'e-mail à $to";
+                        }
                     } else {
-                        echo "Échec de l'envoi de l'e-mail à $to";
+                        echo "Aucun email trouvé pour le code client $code_client";
                     }
                 }
             }
         } catch (Exception $e) {
             echo "Erreur : " . $e->getMessage();
+        } finally {
+            // Fermer la connexion à la base de données
+            $conn = null;
         }
     ?>
 </body>
