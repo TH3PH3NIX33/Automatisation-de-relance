@@ -49,18 +49,18 @@
 
             // Boucle pour parcourir les lignes et envoyer des emails
             foreach ($sheet->getRowIterator() as $row) {
-                // Exemple : obtenir la valeur de la cellule qui contient le code client (par exemple, cellule H2)
+                // Exemple : obtenir la valeur de la cellule qui contient le code client 
                 $code_client = $sheet->getCell('H'.$row->getRowIndex())->getValue();
-                $valeur_condition = $sheet->getCell('A'.$row->getRowIndex())->getValue(); // Supposons que la condition soit dans la colonne A
+                $reglement = $sheet->getCell('AM'.$row->getRowIndex())->getValue();
 
                 // Vérifier la condition pour arrêter l'envoi d'e-mails
-                if ($valeur_condition == 1) {
-                    echo "La condition est remplie (valeur = 1), arrêt du processus d'envoi d'e-mails.";
+                if ($reglement == 1) {
+                    echo "Arrêt du processus d'envoi d'e-mails.";
                     break;
                 }
 
                 // Si la valeur est 0, continuez à traiter cet envoi d'email
-                if ($valeur_condition == 0) {
+                if ($reglement == 0) {
                     // Requête SQL pour récupérer l'email du client en fonction du code client
                     $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE code = :code_client");
                     $stmt->bindParam(':code_client', $code_client);
@@ -70,15 +70,15 @@
                     // Vérifier si l'email a été trouvé dans la base de données
                     if ($email) {
                         // Exemple simplifié pour envoyer un e-mail (utilisation de la fonction mail() de PHP)
-                        $to = $email;
+                        $email_client = $email;
                         $subject = 'Objet de l\'email';
                         $message = 'Contenu du message';
 
                         // Envoyer l'e-mail
                         if (mail($to, $subject, $message)) {
-                            echo "E-mail envoyé à $to";
+                            echo "E-mail envoyé à $email_client";
                         } else {
-                            echo "Échec de l'envoi de l'e-mail à $to";
+                            echo "Échec de l'envoi de l'e-mail à $email_client";
                         }
                     } else {
                         echo "Aucun email trouvé pour le code client $code_client";
