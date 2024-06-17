@@ -19,15 +19,59 @@
         <h2>Contenu principal de votre site</h2>
         <p>Ici vous pouvez ajouter vos informations, vos services, etc.</p>
     </section>
+    <section id="services">
+        <h2>Services</h2>
+        <div>
+            <h3>Mise à jour du fichier Excel</h3>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="excelFile">Sélectionnez un nouveau fichier Excel :</label>
+                <input type="file" name="excelFile" id="excelFile" accept=".xlsx, .xls">
+                <br><br>
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2024 Adex Logistique. Tous droits réservés.</p>
     </footer>
     <?php
-        require 'vendor/autoload.php';
+        $monEmail = "Thibaudlemono@gmail.com";
 
+        // Vérifier si le formulaire a été soumis pour l'upload du fichier
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Vérifier si un fichier a été téléchargé
+            if ($_FILES['excelFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['excelFile']['tmp_name'])) {
+                $target_dir = "uploads/"; // Dossier où vous souhaitez stocker les fichiers téléchargés
+                $target_file = $target_dir . basename($_FILES["excelFile"]["name"]);
+                $uploadOk = true;
+                $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+                // Vérifier si le fichier est un fichier Excel
+                if ($fileType != "xlsx" && $fileType != "xls") {
+                    echo "Seuls les fichiers Excel sont autorisés.";
+                    $uploadOk = false;
+                }
+
+                // Si tout est bon, télécharger le fichier
+                if ($uploadOk) {
+                    if (move_uploaded_file($_FILES["excelFile"]["tmp_name"], $target_file)) {
+                        echo "Le fichier " . basename($_FILES["excelFile"]["name"]) . " a été téléchargé avec succès.";
+
+                        // Redirection vers la page principale après l'upload (ou autre traitement)
+                        header("Location: index.php");
+                        exit;
+                    } else {
+                        echo "Une erreur s'est produite lors du téléchargement du fichier.";
+                    }
+                }
+            } else {
+                echo "Aucun fichier n'a été téléchargé ou une erreur est survenue.";
+            }
+        }
+
+        require 'vendor/autoload.php';
         use PhpOffice\PhpSpreadsheet\IOFactory;
 
-        // Chemin vers votre fichier Excel
         $filePath = 'LISTING_FACT.xlsx';
 
         try {
@@ -71,10 +115,10 @@
                         $message = 'Contenu du message';
 
                         // Envoyer l'e-mail
-                        if (mail($to, $subject, $message)) {
-                            echo "E-mail envoyé à $email_client";
+                        if (mail($monEmail, $subject, $message)) {
+                            echo "E-mail envoyé à $monEmail";
                         } else {
-                            echo "Échec de l'envoi de l'e-mail à $email_client";
+                            echo "Échec de l'envoi de l'e-mail à $monEmail";
                         }
                     } else {
                         echo "Aucun email trouvé pour le code client $code_client";
