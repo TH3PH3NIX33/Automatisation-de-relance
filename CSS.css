@@ -35,3 +35,11 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
