@@ -5,8 +5,7 @@ require 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'variable.env');
 $dotenv->load();
 
-// Tester l'affichage de la variable SMTP_USERNAME
-echo "SMTP Username : " . $_ENV['SMTP_USERNAME'] . "<br>";
+//echo "SMTP Username : " . $_ENV['SMTP_USERNAME'] . "<br>";
 
 // Autres configurations comme la base de données
 $databaseConfig = [
@@ -27,7 +26,7 @@ function getSmtpConfig($email)
         'password' => $_ENV['SMTP_PASSWORD'],
         'smtp_secure' => 'tls',
         'from_address' => $_ENV['SMTP_USERNAME'],
-        'from_name' => 'LauberExpe', // Nom de l'expéditeur par défaut
+        'from_name' => 'Adex Logistique', // Nom de l'expéditeur par défaut
     ];
 
     // Exemple de logique pour déterminer la configuration SMTP en fonction du domaine de l'email destinataire

@@ -25,7 +25,7 @@
     </header>
     <nav>
         <a href="index.php">Accueil</a>
-        <a href="send_email.php">Envoye des Relances</a>
+        <a href="send_email.html">Envoye des Relances</a>
     </nav>
     <main>
         <section>
@@ -39,27 +39,43 @@
 
                 <section id="responseSection">
                     <div id="response">
-                        <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            if ($_FILES['excelFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['excelFile']['tmp_name'])) {
-                                $target_dir = "uploads/";
-                                $target_file = $target_dir . basename($_FILES["excelFile"]["name"]);
-                                $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
+                    <?php
+                    // Vérifie si la requête est une requête POST (indiquant que le formulaire a été soumis)
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        // Vérifie s'il n'y a pas d'erreur d'upload et si le fichier a bien été téléchargé
+                        if ($_FILES['excelFile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['excelFile']['tmp_name'])) {
+                            $target_dir = "uploads/"; // Répertoire cible pour le téléchargement des fichiers
+                            $newFileName = "LISTING_FACT.xlsx"; // Nom du fichier cible
+                            $target_file = $target_dir . $newFileName; // Chemin complet du fichier cible
+                            $fileType = pathinfo($_FILES["excelFile"]["name"], PATHINFO_EXTENSION); // Obtient l'extension du fichier uploadé
 
-                                if (in_array($fileType, ['xlsx', 'xls'])) {
-                                    if (move_uploaded_file($_FILES["excelFile"]["tmp_name"], $target_file)) {
-                                        echo '<span class="success">Le fichier ' . basename($_FILES["excelFile"]["name"]) . ' a été téléchargé avec succès.</span>';
-                                    } else {
-                                        echo '<span class="error">Une erreur s\'est produite lors du téléchargement du fichier.</span>';
+                            // Vérifie si le fichier a une extension autorisée (xlsx ou xls)
+                            if (in_array($fileType, ['xlsx', 'xls'])) {
+                                // Vérifie si un fichier avec le même nom existe déjà et le supprime
+                                if (file_exists($target_file)) {
+                                    if (!unlink($target_file)) {
+                                        echo '<span class="error">Impossible de supprimer l\'ancien fichier.</span>';
+                                        exit();
                                     }
+                                }
+
+                                // Déplace le fichier uploadé vers le répertoire cible avec le nom spécifié
+                                if (move_uploaded_file($_FILES["excelFile"]["tmp_name"], $target_file)) {
+                                    echo '<span class="success">Le fichier ' . htmlspecialchars(basename($_FILES["excelFile"]["name"])) . ' a été téléchargé et remplacé avec succès.</span>';
                                 } else {
-                                    echo '<span class="error">Seuls les fichiers Excel sont autorisés.</span>';
+                                    // Affiche un message d'erreur si le déplacement du fichier échoue
+                                    echo '<span class="error">Une erreur s\'est produite lors du téléchargement du fichier.</span>';
                                 }
                             } else {
-                                echo '<span class="error">Aucun fichier n\'a été téléchargé ou une erreur est survenue.</span>';
+                                // Affiche un message d'erreur si le fichier n'a pas une extension autorisée
+                                echo '<span class="error">Seuls les fichiers Excel sont autorisés.</span>';
                             }
+                        } else {
+                            // Affiche un message d'erreur si aucun fichier n'a été téléchargé ou s'il y a une erreur d'upload
+                            echo '<span class="error">Aucun fichier n\'a été téléchargé ou une erreur est survenue.</span>';
                         }
-                        ?>
+                    }
+                    ?>
                     </div>
                 </section>
     </main>
