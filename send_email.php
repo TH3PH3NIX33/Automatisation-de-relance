@@ -1,5 +1,4 @@
 <?php
-/*
 require 'vendor/autoload.php';
 require 'config.php';
 
@@ -74,47 +73,40 @@ try {
 } finally {
     $conn = null;
 }
-*/
 
 
-require 'vendor/autoload.php';
+
+/*
 require 'config.php';
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+$email = 'thibaud.lauber67000@gmail.com'; // Adresse email du destinataire
+
+$config = getSmtpConfig($email);
+
+$mail = new PHPMailer(true);
+
 try {
-    $email = 'thibaudlemono@gmail.com'; // Votre adresse email pour tester
-    $config = getSmtpConfig($email);
+    $mail->isSMTP();
+    $mail->Host = $config['host'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $config['username'];
+    $mail->Password = $config['password'];
+    $mail->SMTPSecure = $config['smtp_secure'];
+    $mail->Port = $config['port'];
 
-    if ($config) {
-        $mail = new PHPMailer(true);
+    $mail->setFrom($config['from_address'], $config['from_name']);
+    $mail->addAddress($email);
 
-        $mail->isSMTP();
-        $mail->Host = $config['host'];
-        $mail->Port = $config['port'];
-        $mail->SMTPAuth = true;
-        $mail->Username = $config['username'];
-        $mail->Password = $config['password'];
-        $mail->SMTPSecure = $config['smtp_secure'];
+    $mail->isHTML(true);
+    $mail->Subject = 'Test Email';
+    $mail->Body    = 'Ceci est un email de test envoyé via SMTP.';
 
-        $mail->setFrom($config['from_address'], $config['from_name']);// Définit l'expéditeur
-        $mail->addAddress($email);// Ajoute un destinataire
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Test d\'envoi d\'email';
-        $mail->Body = 'Ceci est un email de test envoyé depuis PHPMailer avec Gmail SMTP.';
-
-        if ($mail->send()) {
-            echo "E-mail de test envoyé avec succès à $email";
-        } else {
-            echo "Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo;
-        }
-    } else {
-        echo "Configuration SMTP non trouvée pour l'adresse e-mail : $email";
-    }
-
+    $mail->send();
+    echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+*/
 ?>
