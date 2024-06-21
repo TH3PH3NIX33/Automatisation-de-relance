@@ -1,6 +1,7 @@
 <?php
+/*
 require 'vendor/autoload.php';
-require 'config.php'; // Inclure le fichier de configuration
+require 'config.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -33,6 +34,11 @@ try {
         if ($reglement == 0) {
             $stmt->execute();
             $email = $stmt->fetchColumn();
+
+            $email = 'thibaud.lauber67000@gmail.com';
+            $code_client = 'TEST123';
+            $montant = '100';
+            $date = date('Y-m-d');
 
             $config = getSmtpConfig($monEmail);
             if ($email && $config) {
@@ -67,5 +73,48 @@ try {
     echo "Erreur : " . $e->getMessage();
 } finally {
     $conn = null;
+}
+*/
+
+
+require 'vendor/autoload.php';
+require 'config.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+try {
+    $email = 'thibaudlemono@gmail.com'; // Votre adresse email pour tester
+    $config = getSmtpConfig($email);
+
+    if ($config) {
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host = $config['host'];
+        $mail->Port = $config['port'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $config['username'];
+        $mail->Password = $config['password'];
+        $mail->SMTPSecure = $config['smtp_secure'];
+
+        $mail->setFrom($config['from_address'], $config['from_name']);// Définit l'expéditeur
+        $mail->addAddress($email);// Ajoute un destinataire
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Test d\'envoi d\'email';
+        $mail->Body = 'Ceci est un email de test envoyé depuis PHPMailer avec Gmail SMTP.';
+
+        if ($mail->send()) {
+            echo "E-mail de test envoyé avec succès à $email";
+        } else {
+            echo "Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo;
+        }
+    } else {
+        echo "Configuration SMTP non trouvée pour l'adresse e-mail : $email";
+    }
+
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
 }
 ?>

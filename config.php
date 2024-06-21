@@ -1,38 +1,44 @@
 <?php
-// Configuration de la base de données
+require 'vendor/autoload.php';
+
+// Charger les variables d'environnement à partir du fichier .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'variable.env');
+$dotenv->load();
+
+// Tester l'affichage de la variable SMTP_USERNAME
+echo "SMTP Username : " . $_ENV['SMTP_USERNAME'] . "<br>";
+
+// Autres configurations comme la base de données
 $databaseConfig = [
-    'host' => 'localhost',
-    'dbname' => 'client_adex_logistique',
-    'username' => 'root',
-    'password' => '',
+    'host' => $_ENV['DATABASE_HOST'],
+    'dbname' => $_ENV['DATABASE_NAME'],
+    'username' => $_ENV['DATABASE_USER'],
+    'password' => $_ENV['DATABASE_PASSWORD'],
 ];
 
-$modeTest = true;
 // Fonction pour récupérer la configuration SMTP
 function getSmtpConfig($email)
 {
-    $modeTest = true;
-    $smtpConfigurations = [
-        'relance.auto@gmail.com' => [
-            'host' => 'smtp.gmail.com',
-            'port' => 587,
-            'username' => getenv('SMTP_USERNAME'),
-            'password' => getenv('SMTP_PASSWORD'),
-            'smtp_secure' => 'tls',
-            'from_address' => getenv('SMTP_USERNAME'),
-            'from_name' => 'Lauber',
-        ],
-        // Ajoutez d'autres configurations SMTP si nécessaire
+    // Configuration SMTP par défaut
+    $gmailConfig = [
+        'host' => 'smtp.gmail.com',
+        'port' => 587,
+        'username' => $_ENV['SMTP_USERNAME'],
+        'password' => $_ENV['SMTP_PASSWORD'],
+        'smtp_secure' => 'tls',
+        'from_address' => $_ENV['SMTP_USERNAME'],
+        'from_name' => 'LauberExpe', // Nom de l'expéditeur par défaut
     ];
 
-    if ($modeTest) {
-        $smtpConfigurations['relance.auto@gmail.com']['from_address'] = 'thibaud.lauber67000@gmail.com'; 
-    }
-    // Vérifier si la configuration SMTP existe pour l'e-mail spécifié
-    if (isset($smtpConfigurations[$email])) {
-        return $smtpConfigurations[$email];
-    } else {
-        throw new Exception("Configuration SMTP non trouvée pour l'adresse e-mail : $email");
+    // Exemple de logique pour déterminer la configuration SMTP en fonction du domaine de l'email destinataire
+    $domain = explode('@', $email)[1]; // Récupère le domaine de l'adresse email
+
+    switch ($domain) {
+        case 'gmail.com':
+            return $gmailConfig; // Utilise la configuration par défaut pour les emails Gmail
+        // Ajoutez d'autres cas pour d'autres domaines si nécessaire
+        default:
+            throw new Exception("Configuration SMTP non trouvée pour le domaine de l'adresse e-mail : $domain");
     }
 }
 ?>
