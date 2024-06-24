@@ -6,7 +6,7 @@ body {
     color: #fff;
 }
 header {
-    background-color: #c0392b; /* Rouge foncé */
+    background-color: #c0392b;
     padding: 20px;
     text-align: center;
 }
@@ -28,7 +28,7 @@ section {
     padding: 20px;
 }
 footer {
-    background-color: #c0392b; /* Rouge foncé */
+    background-color: #c0392b;
     padding: 20px;
     text-align: center;
     position: fixed;

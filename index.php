@@ -4,41 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adex Logistique - Automatisation de Relance de Factures</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS.css">
 </head>
 <body>
-    <header>
-        <h1>Adex Logistique - Automatisation de Relance de Factures</h1>
-        <script>
-            function validateForm() {
-                var fileInput = document.getElementById('excelFile');
-                var filePath = fileInput.value;
-                var allowedExtensions = /(\.xlsx|\.xls)$/i;
-
-                if (!allowedExtensions.exec(filePath)) {
-                    alert('Seuls les fichiers Excel (.xlsx, .xls) sont autorisés.');
-                    return false;
-                }
-                return true;
-            }
-        </script>
+    <header class="bg-danger text-white py-4">
+        <div class="container">
+            <h1 class="text-center">Adex Logistique - Automatisation de Relance de Factures</h1>
+        </div>
     </header>
-    <nav>
-        <a href="index.php">Accueil</a>
-        <a href="send_email.html">Envoye des Relances</a>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Accueil</a>
+            <a class="navbar-brand" href="send_email.html">Envoyer des Relances</a>
+        </div>
     </nav>
-    <main>
+
+    <main class="container my-5">
         <section>
             <h2>Mise à jour du fichier Excel</h2>
-                <form id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form id="uploadForm" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <div class="form-group">
                     <label for="excelFile">Sélectionnez un nouveau fichier Excel :</label>
-                    <input type="file" name="excelFile" id="excelFile" accept=".xlsx, .xls">
-                    <br><br>
-                    <input type="submit" value="Envoyer">
-                </form>
+                    <input type="file" class="form-control-file" id="excelFile" name="excelFile" accept=".xlsx, .xls">
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
 
-                <section id="responseSection">
-                    <div id="response">
+            <section id="responseSection" class="mt-4">
+                <div id="response">
                     <?php
                     // Vérifie si la requête est une requête POST (indiquant que le formulaire a été soumis)
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -76,11 +71,19 @@
                         }
                     }
                     ?>
-                    </div>
-                </section>
+                </div>
+            </section>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Adex Logistique. Tous droits réservés.</p>
+
+    <footer class="bg-danger text-white py-4">
+        <div class="container">
+            <p class="text-center">&copy; 2024 Adex Logistique. Tous droits réservés.</p>
+        </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="JS/centralized.js"></script>
 </body>
 </html>

@@ -4,136 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adex Logistique - Envoi des Emails de Relance</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sendEmailsForm = document.getElementById('sendEmailsForm');
-            var responseSection = document.getElementById('response');
-    
-            sendEmailsForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-    
-                var formData = new FormData(sendEmailsForm);
-    
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'send_email.php', true);
-                xhr.onload = function() {
-                    if (xhr.status >= 200 && xhr.status < 400) {
-                        responseSection.innerHTML = xhr.responseText;
-                    } else {
-                        console.error('Erreur lors de la requête : ' + xhr.status);
-                        responseSection.innerHTML = '<p>Une erreur est survenue lors de l\'envoi du formulaire.</p>';
-                    }
-                };
-                xhr.onerror = function() {
-                    console.error('Erreur réseau.');
-                    responseSection.innerHTML = '<p>Erreur réseau lors de l\'envoi du formulaire.</p>';
-                };
-                xhr.send(formData);
-            });
-        });
-        </script>
 </head>
 <body>
-    <header>
-        <h1>Adex Logistique - Envoi des Emails de Relance</h1>
+    <header class="bg-danger text-white py-4">
+        <div class="container">
+            <h1 class="text-center">Adex Logistique - Envoi des Emails de Relance</h1>
+        </div>
     </header>
-    <nav>
-        <a href="index.php">Accueil</a>
-        <a href="send_emails.php">Envoyer des Relances</a>
+
+    <nav class="bg-dark text-white py-2">
+        <div class="container">
+            <a href="index.php" class="text-white">Accueil</a>
+            <a href="send_emails.html" class="text-white">Envoyer des Relances</a>
+        </div>
     </nav>
-    <main>
-        <section>
+
+    <main class="container my-5">
+        <section class="mb-5">
             <h3>Envoyer des Emails de Relance</h3>
-            <form id="sendEmailsForm" method="post" action="send_email.php">
-                <input type="submit" name="sendEmails" value="Envoyer les relances">
+            <form id="sendEmailsForm">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Envoyer les relances</button>
+                </div>
             </form>
+            <div id="responseSection"></div>
         </section>
-        <section id="responseSection">
-            <div id="response">
-                <!-- Messages de réponse s'afficheront ici -->
-            </div>
-        </section>
-        <section>
+
+        <section class="mb-5">
             <h3>Ajouter un client manuellement</h3>
-            <form id="addClientForm" method="post">
-                <label for="societe">Société :</label>
-                <input type="text" id="societe" name="societe" required><br>
-        
-                <label for="agence">Agence :</label>
-                <input type="text" id="agence" name="agence"><br>
-        
-                <label for="code">Code :</label>
-                <input type="text" id="code" name="code" required><br>
-        
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required><br>
-        
-                <label for="adresse">Adresse :</label>
-                <input type="text" id="adresse" name="adresse"><br>
-        
-                <label for="complement">Complément :</label>
-                <input type="text" id="complement" name="complement"><br>
-        
-                <label for="code_postal">Code Postal :</label>
-                <input type="text" id="code_postal" name="code_postal"><br>
-        
-                <label for="ville">Ville :</label>
-                <input type="text" id="ville" name="ville"><br>
-        
-                <label for="pays">Pays :</label>
-                <input type="text" id="pays" name="pays"><br>
-        
-                <label for="nom_court">Nom Court :</label>
-                <input type="text" id="nom_court" name="nom_court"><br>
-        
-                <label for="ville_libre">Ville Libre :</label>
-                <input type="text" id="ville_libre" name="ville_libre"><br>
-        
-                <label for="cp_codex">CP Codex :</label>
-                <input type="text" id="cp_codex" name="cp_codex"><br>
-        
-                <label for="telephone">Téléphone :</label>
-                <input type="text" id="telephone" name="telephone"><br>
-        
-                <label for="fax">Fax :</label>
-                <input type="text" id="fax" name="fax"><br>
-        
-                <label for="courriel">Courriel :</label>
-                <input type="email" id="courriel" name="courriel"><br>
-        
-                <label for="num_intracomm">n° IntraComm :</label>
-                <input type="text" id="num_intracomm" name="num_intracomm"><br>
-        
-                <label for="num_siret">n° SIRET :</label>
-                <input type="text" id="num_siret" name="num_siret"><br>
-        
-                <label for="code_regroupement">Code Regroupement :</label>
-                <input type="text" id="code_regroupement" name="code_regroupement"><br>
-        
-                <label for="dh_creation">D/H Création :</label>
-                <input type="text" id="dh_creation" name="dh_creation"><br>
-        
-                <label for="creation_par">Création par :</label>
-                <input type="text" id="creation_par" name="creation_par"><br>
-        
-                <label for="dh_modif">D/H Modif :</label>
-                <input type="text" id="dh_modif" name="dh_modif"><br>
-        
-                <label for="modif_par">Modif par :</label>
-                <input type="text" id="modif_par" name="modif_par"><br>
-        
-                <input type="submit" name="addClient" value="Ajouter le client">
+            <form id="addClientForm" method="post" class="container mt-4">
+                <div class="form-group">
+                    <label for="societe">Société :</label>
+                    <input type="text" class="form-control" id="societe" name="societe" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="agence">Agence :</label>
+                    <input type="text" class="form-control" id="agence" name="agence">
+                </div>
+            
+                <div class="form-group">
+                    <label for="code">Code :</label>
+                    <input type="text" class="form-control" id="code" name="code" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse">
+                </div>
+            
+                <div class="form-group">
+                    <label for="complement">Complément :</label>
+                    <input type="text" class="form-control" id="complement" name="complement">
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="code_postal">Code Postal :</label>
+                        <input type="text" class="form-control" id="code_postal" name="code_postal">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="ville">Ville :</label>
+                        <input type="text" class="form-control" id="ville" name="ville">
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pays">Pays :</label>
+                        <input type="text" class="form-control" id="pays" name="pays">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="nom_court">Nom Court :</label>
+                        <input type="text" class="form-control" id="nom_court" name="nom_court">
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ville_libre">Ville Libre :</label>
+                        <input type="text" class="form-control" id="ville_libre" name="ville_libre">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="cp_codex">CP Codex :</label>
+                        <input type="text" class="form-control" id="cp_codex" name="cp_codex">
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="telephone">Téléphone :</label>
+                        <input type="text" class="form-control" id="telephone" name="telephone">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="fax">Fax :</label>
+                        <input type="text" class="form-control" id="fax" name="fax">
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="courriel">Courriel :</label>
+                    <input type="email" class="form-control" id="courriel" name="courriel">
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="num_intracomm">n° IntraComm :</label>
+                        <input type="text" class="form-control" id="num_intracomm" name="num_intracomm">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="num_siret">n° SIRET :</label>
+                        <input type="text" class="form-control" id="num_siret" name="num_siret">
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="code_regroupement">Code Regroupement :</label>
+                        <input type="text" class="form-control" id="code_regroupement" name="code_regroupement">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="dh_creation">D/H Création :</label>
+                        <input type="text" class="form-control" id="dh_creation" name="dh_creation">
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="creation_par">Création par :</label>
+                        <input type="text" class="form-control" id="creation_par" name="creation_par">
+                    </div>
+            
+                    <div class="form-group col-md-6">
+                        <label for="dh_modif">D/H Modif :</label>
+                        <input type="text" class="form-control" id="dh_modif" name="dh_modif">
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label for="modif_par">Modif par :</label>
+                    <input type="text" class="form-control" id="modif_par" name="modif_par">
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Ajouter le client</button>
             </form>
-        </section>
-        <section id="addClientResponse">
-            <div id="addClientMessage">
-                <!-- Messages de réponse s'afficheront ici -->
-            </div>
+            
+
+            <div id="addClientResponse"></div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Adex Logistique. Tous droits réservés.</p>
+
+    <footer class="bg-danger text-white py-4">
+        <div class="container">
+            <p class="text-center">&copy; 2024 Adex Logistique. Tous droits réservés.</p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JavaScript et dépendances -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript centralisé -->
+    <script src="centralized.js"></script>
 </body>
 </html>

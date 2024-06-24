@@ -243,5 +243,3 @@ try {
 
 $conn = null;
 ?>
-
-
