@@ -45,7 +45,7 @@
                             $fileType = pathinfo($_FILES["excelFile"]["name"], PATHINFO_EXTENSION); // Obtient l'extension du fichier uploadé
 
                             // Vérifie si le fichier a une extension autorisée (xlsx ou xls)
-                            if (in_array($fileType, ['xlsx', 'xls'])) {
+                            if (in_array($fileType, array('xlsx', 'xls'))) {
                                 // Vérifie si un fichier avec le même nom existe déjà et le supprime
                                 if (file_exists($target_file)) {
                                     if (!unlink($target_file)) {

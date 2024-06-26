@@ -131,7 +131,8 @@ try {
     $stmt->bindParam(':code_client', $code_client_predit);
     $stmt->execute();
     $email = $stmt->fetchColumn();
-    //echo " Voici l'email trouver : ". $email;
+    echo " Voici l'email trouver : ". $email;
+    $reponse = " Voici l'email trouver : ". $email;
 
     // Chemin vers le fichier Excel
     $filePath = 'uploads/LISTING_FACT.xlsx';
