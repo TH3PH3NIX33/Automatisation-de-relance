@@ -1,0 +1,33 @@
+<?php
+$tips[1]  = 'Sie k&ouml;nnen von einer Tabelle direkt die Eigenschaften sehen wenn Sie auf das <img src="'.$img_path.'img/affich.gif" border="0" align="center"> Icon auf der linken Seite klicken.';
+$tips[2]  = 'Ihr Bildschirm ist nicht gross genug?? Klicken Sie auf das <img src="'.$img_path.'img/close.gif" border="0" align="center"> Icon um die Toolbar zu verschieben.';
+$tips[3]  = 'Vergessen Sie nicht auf die Seite <A href="http://www.phptools4u.com" target=_blank>www.phptools4u.com</A> zu schauen um die neusten Updates zu erhalten !';
+$tips[4]  = 'Sie k&ouml;nnen die Tabellen Liste ausblenden, wenn Sie auf den Datenbank Namen klicken';
+$tips[5]  = 'Sie k&ouml;nnen das Logo Ihrer Seite einblenden, wenn Sie es in Ihr Skin Verzeichnis kopieren und es <B>logo.gif</B> nennen.';
+$tips[6]  = 'Genug von diesem Popup ?<BR>Klicken Sie auf "Abschalten" und es wird nicht mehr angezeigt.';
+$tips[7]  = 'Sie verstehen eine Funktion nicht ?<BR>Klicken Sie auf das Hilfe <img src="'.$img_path.'img/tips_off.gif" border="0" align="center"> Icon und ie erhalten mehr Informationen.';
+$tips[8]  = 'Sie m&ouml;chten ein Hintergrundbild in der Titel Zeile haben ? Legen Sie eine Datei mit dem Namen <B>titre_bg.gif</B> in Ihr aktuelles Skin Verzeichnis und es wird angezeigt.';
+$tips[9]  = 'Sie geben oft die gleichen Anfragen ein ? Speichen Sie diese . Klicken Sie aud das <img src="'.$img_path.'img/bookmark.gif" border="0" align="center"> klicken.<br>Sie k&ouml;nnen 25 Anfragen speichern.';
+$tips[10] = 'Sie m&ouml;chten Ihre eigene Anfrage eingeben ?<BR>Klicken Sie auf "Manuelle Eingabe" und geben Sie die Anfrage ein.';
+$tips[11] = 'Sie sind ein K&uuml;nstler ?<BR>Erstellen Sie Ihre eigenen Skins mit dem internen Tool.';
+$tips[12] = 'Sie m&ouml;chten Ihre Datenbank sichern, aber diese ist sehr gross ?<BR>Teilen Sie die Backup Datei in mehrere kleine auf !';
+$tips[13] = 'Sie k&ouml;nnen die Sprache mit einem einfachen Klick auf der Startseite&auml;ndern.';
+$tips[14] = 'Dies ist ein sogenanntes <a href="http://www.perdu.com" target="_blank">Osterei</a>.';
+$tips[15] = 'Alle Datentypen verloren ? <BR>Sie brauchen den link zur vorhergehenden Seite f&uuml;r eine Hilfe.';
+$tips[16] = 'Vergessen Sie nicht Ihre Datenbank &ouml;fter zu Optimieren (<img src="'.$img_path.'img/optimize.gif" border="0">). Ihre Anfragen werden dadurch schneller !';
+$tips[17] = 'Sie haben sehr viele Tabellen ? F&uuml;gen Sie zu jeder Tabelle einen Kommentar.  Sie finden sich dann leichter zurecht...';
+$tips[18] = 'Sie m&ouml;chten mehrere Tabellen gleichzeitig optimieren ? Klicken Sie auf die gew&uuml;nschte Datenbank und dann auf "Tabellen optimieren".';
+$tips[19] = 'Your database must be emptied ? No problem, on the current database homepage, pick the tables and empty them !';
+$tips[20] = 'Sie m&ouml;chten Ihre Datenbank leeren ? Klicken Sie auf die Datenbank, w&auml;hlen Sie die Tabellen und leeren Sie diese !';
+$tips[21] = 'Sie k&ouml;nnen sich eine Anzahl von Buchstaben f&uuml;r TEXT, BLOB and VARCHAR Daten Typen zeigen lassen. W&auml;hlen Sie einfach eine Zahl gr&ouml;sser Null in Ihrer globalen Variable.';
+$tips[22] = 'Sie k&ouml;nnen die Tabellen einer Datenbank anzeigen oder usblenden, indem Sie auf diese klicken.';
+$tips[23] = 'Sie m&ouml;chten uns helfen ? <BR>Sie k&ouml;nnen eSKUeL in eine andere Sprache &uuml;bersetzen. gehen Sie zu <a href="http://www.phptools4u.com" target=_blank>www.phptools4u.com</a> um mehr zu erfahren.';
+$tips[24] = 'Sie haben mehrere Eintr&auml;ge gel&ouml;scht und die Tabelle ist nicht richtig sortiert ? Sie k&ouml;nnen es nach allen Feldern die Sie m&ouml;chten sortieren lassen.';
+$tips[25] = 'Sie k&ouml;nnen sich die Struktur einer Tabelle im Textmodus anzeigen lassen , wenn Sie auf dieses <img src="'.$img_path.'/img/tbl_structure.gif"> Icon in der Tabellen eite klicken';
+$tips[26] = 'Haben Sie die letzte Version von eSKUeL ? Klicken Sie auf den Link zur Home Page nahe der Versionsnummer !';
+$tips[27] = 'Vieviel Platz belegt meine Datenbank ? Klicken Sie links neben den Namen, und der belegte Platz wird unter dem Tabellen Namen angezeigt.';
+$tips[28] = 'Vergessen Sie nicht die Seite <A href="http://www.phptools4u.com" target="_blank">PHPTools4U.com</A> zu besuchen um neue PHP-Scripte zu erhalten !';
+$tips[29] = 'Sie k&ouml;nnen diese Tipps ver&auml;ndern und erweitern, wenn Sie die Datei <B>lang/tips_<I>your_language</I></B> ver&auml;ndern';
+$tips[30] = 'Sie haben einen Fehler gefunden ? (es ist schwer :o) ) berichten Sie diesen auf <A href="http://www.phptools4u.com/" target="_blank">PHPTools4U.com</A>, so dass wir diesen in der n&auml;chsten Version beseitigen k&ouml;nnen !';
+$tips[31] = 'Sie m&ouml;chten eine andere Funktion in eSKUeL ? Sie haben eine Idee f&uuml;r die n&auml;chste Version ? Schreiben Sie uns diese in <A href="http://www.phptools4u.com/" target="_blank">PHPTools4U.com</A>';
+?>
