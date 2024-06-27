@@ -110,6 +110,9 @@ try {
 }
 */
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require 'vendor/autoload.php';
 require 'config.php';
@@ -118,28 +121,47 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Configuration des logs
+$logFile = 'log.txt';
+function logMessage($message) {
+    global $logFile;
+    file_put_contents($logFile, date('Y-m-d H:i:s') . " - " . $message . PHP_EOL, FILE_APPEND);
+}
+
 // Code client spécifique prédéfini
 $code_client_predit = 'C006666';
+// Ajout d'un log au début du script
+logMessage("Début du script");
 
 try {
     // Connexion à la base de données
     $conn = new PDO("mysql:host={$databaseConfig['host']};dbname={$databaseConfig['dbname']}", $databaseConfig['username'], $databaseConfig['password']);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    logMessage("Connexion à la base de données réussie.");
 
     // Requête SQL pour récupérer l'email à partir du code client prédéfini
     $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE code = :code_client");
     $stmt->bindParam(':code_client', $code_client_predit);
     $stmt->execute();
     $email = $stmt->fetchColumn();
-    echo " Voici l'email trouver : ". $email;
-    $reponse = " Voici l'email trouver : ". $email;
+    if ($email) {
+        logMessage("Email trouvé : $email");
+    } else {
+        logMessage("Aucun email trouvé pour le code client prédéfini $code_client_predit.");
+        exit;
+    }
 
     // Chemin vers le fichier Excel
     $filePath = 'uploads/LISTING_FACT.xlsx';
+    if (!file_exists($filePath)) {
+        logMessage("Le fichier Excel n'existe pas : $filePath");
+        exit;
+    }
 
     // Charger le fichier Excel
     $spreadsheet = IOFactory::load($filePath);
     $sheet = $spreadsheet->getSheet(0);
+    logMessage("Fichier Excel chargé avec succès.");
 
     // Récupérer les données du fichier Excel pour le code client prédéfini
     foreach ($sheet->getRowIterator() as $row) {
@@ -155,7 +177,7 @@ try {
 
         // Vérifie le statut de règlement
         if ($reglement == 1) {
-            echo "Arrêt du processus d'envoi d'e-mails pour le code client $code_client_excel.<br>";
+            logMessage("Arrêt du processus d'envoi d'e-mails pour le code client $code_client_excel : facture réglée.");
             break;
         }
 
@@ -181,66 +203,18 @@ try {
             $mail->Body = "Bonjour,<br><br>Sauf erreur ou omissions de notre part, notre facture N° {$code_client_predit} datée du {$date} pour un montant TTC de {$montant} € n’a pas encore été réglée.<br><br>Pourriez-vous effectuer le règlement de celle-ci ou nous informer des raisons pour lesquelles elle serait bloquée ?<br><br>Merci d’avance.<br><br>Cordialement,<br>Arnaud DESCHAMPS<br>Adex Logistique, Dirigeant<br>+336 20 73 25 63";
 
             if ($mail->send()) {
-                echo "E-mail envoyé à $email pour le code client $code_client_predit.<br>";
-                $reponse = "E-mail envoyé à $email pour le code client $code_client_predit.<br>";
-
+                logMessage("E-mail envoyé à $email pour le code client $code_client_predit.");
             } else {
-                echo "Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo . "<br>";
-                $reponse = "Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo . "<br>";
+                logMessage("Échec de l'envoi de l'e-mail à $email : " . $mail->ErrorInfo);
             }
         } else {
-            echo "Aucun email trouvé pour le code client prédéfini $code_client_predit ou configuration SMTP non trouvée.<br>";
-            $reponse = "Aucun email trouvé pour le code client prédéfini $code_client_predit ou configuration SMTP non trouvée.<br>";
+            logMessage("Aucun email trouvé pour le code client prédéfini $code_client_predit ou configuration SMTP non trouvée.");
         }
     }
 } catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-    $reponse = "Erreur : " . $e->getMessage();
+    logMessage("Erreur : " . $e->getMessage());
 } finally {
     $conn = null;
+    logMessage("Connexion à la base de données fermée.");
 }
-?>
-
-<?php
-
-try {
-    $conn = new PDO("mysql:host={$databaseConfig['host']};dbname={$databaseConfig['dbname']}", $databaseConfig['username'], $databaseConfig['password']);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Préparer la requête d'insertion
-    $stmt = $conn->prepare("INSERT INTO liste_des_clients (Societe, Agence, Code, Nom, Adresse, Complement, Code_Postal, Ville, Pays, Nom_Court, Ville_Libre, CP_Codex, Telephone, Fax, Courriel, IntraComm, SIRET, Code_Regroupement) 
-                            VALUES (:societe, :agence, :code, :nom, :adresse, :complement, :code_postal, :ville, :pays, :nom_court, :ville_libre, :cp_codex, :telephone, :fax, :courriel, :intra_comm, :siret, :code_regroupement)");
-
-    // Liaison des paramètres avec les valeurs du formulaire
-    $stmt->bindParam(':societe', $_POST['societe']);
-    $stmt->bindParam(':agence', $_POST['agence']);
-    $stmt->bindParam(':code', $_POST['code']);
-    $stmt->bindParam(':nom', $_POST['nom']);
-    $stmt->bindParam(':adresse', $_POST['adresse']);
-    $stmt->bindParam(':complement', $_POST['complement']);
-    $stmt->bindParam(':code_postal', $_POST['code_postal']);
-    $stmt->bindParam(':ville', $_POST['ville']);
-    $stmt->bindParam(':pays', $_POST['pays']);
-    $stmt->bindParam(':nom_court', $_POST['nom_court']);
-    $stmt->bindParam(':ville_libre', $_POST['ville_libre']);
-    $stmt->bindParam(':cp_codex', $_POST['cp_codex']);
-    $stmt->bindParam(':telephone', $_POST['telephone']);
-    $stmt->bindParam(':fax', $_POST['fax']);
-    $stmt->bindParam(':courriel', $_POST['courriel']);
-    $stmt->bindParam(':intra_comm', $_POST['intra_comm']);
-    $stmt->bindParam(':siret', $_POST['siret']);
-    $stmt->bindParam(':code_regroupement', $_POST['code_regroupement']);
-
-    // Exécuter la requête
-    $stmt->execute();
-
-    echo "Client ajouté avec succès.";
-    $reponse = "Client ajouté avec succès.";
-
-} catch(PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
-    $reponse = "Erreur : " . $e->getMessage();
-}
-
-$conn = null;
 ?>
