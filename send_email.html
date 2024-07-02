@@ -24,7 +24,7 @@
     <main class="container my-5">
         <section class="mb-5">
             <h3>Envoyer des Emails de Relance</h3>
-            <form id="sendEmailsForm" action="send_email.php" method="post">
+            <form id="sendEmailsForm" action="send_email.php" method="post" class="container mt-4">
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Envoyer les relances</button>
                 </div>
@@ -34,7 +34,7 @@
 
         <section class="mb-5">
             <h3>Ajouter un client manuellement</h3>
-            <form id="addClientForm" method="post" class="container mt-4">
+            <form id="addClientForm" action="send_email.php" method="post" class="container mt-4">
                 <div class="form-group">
                     <label for="societe">Société :</label>
                     <input type="text" class="form-control" id="societe" name="societe" required>
