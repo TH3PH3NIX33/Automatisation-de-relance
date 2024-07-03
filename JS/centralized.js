@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Formulaire pour envoyer des emails de relance
     var sendEmailsForm = document.getElementById('sendEmailsForm');
     var responseSection = document.getElementById('responseSection');
 
     sendEmailsForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Empêche l'envoi normal du formulaire
+
         var formData = new FormData(sendEmailsForm);
 
         var xhr = new XMLHttpRequest();
@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send(formData);
     });
 
+
+
     // Formulaire pour ajouter un client manuellement
     var addClientForm = document.getElementById('addClientForm');
     var addClientResponse = document.getElementById('addClientResponse');
@@ -37,25 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         var formData = new FormData(addClientForm);
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'add_client.php', true); // Notez que j'ai changé le fichier cible pour ajouter un client
-        xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status < 400) {
-                var response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    addClientResponse.innerHTML = '<p class="success">' + response.message + '</p>';
-                } else {
-                    addClientResponse.innerHTML = '<p class="error">' + response.message + '</p>';
-                }
+        fetch('add_client.php', {  // Assurez-vous que 'add_client.php' est correctement configuré pour ajouter un client
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                addClientResponse.innerHTML = '<p class="success">' + data.message + '</p>';
             } else {
-                console.error('Erreur lors de la requête : ' + xhr.status);
-                addClientResponse.innerHTML = '<p class="error">Une erreur est survenue lors de l\'envoi du formulaire.</p>';
+                addClientResponse.innerHTML = '<p class="error">' + data.message + '</p>';
             }
-        };
-        xhr.onerror = function() {
-            console.error('Erreur réseau.');
-            addClientResponse.innerHTML = '<p class="error">Erreur réseau lors de l\'envoi du formulaire.</p>';
-        };
-        xhr.send(formData);
+        })
+        .catch(error => {
+            console.error('Erreur lors de la requête :', error);
+            addClientResponse.innerHTML = '<p class="error">Une erreur est survenue lors de l\'envoi du formulaire.</p>';
+        });
     });
 });
