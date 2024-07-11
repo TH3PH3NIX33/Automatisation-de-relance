@@ -14,10 +14,10 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="bg-dark text-white py-2">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Accueil</a>
-            <a class="navbar-brand" href="send_email.html">Envoyer des Relances</a>
+            <a href="index.php" class="text-white">Accueil</a>
+            <a href="send_email.html" class="text-white">Envoyer des Relances</a>
         </div>
     </nav>
 

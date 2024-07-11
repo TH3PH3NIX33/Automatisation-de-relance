@@ -172,3 +172,364 @@
 2024-07-03 09:49:47 - E-mail envoyé à thibaud.lauber67000@gmail.com pour le code client C006666.
 2024-07-03 09:50:00 - E-mail envoyé à thibaud.lauber67000@gmail.com pour le code client C006666.
 2024-07-03 09:50:11 - E-mail envoyé à thibaud.lauber67000@gmail.com pour le code client C006666.
+2024-07-05 08:32:14 - Action reçue : addClient
+2024-07-05 08:32:14 - Connexion à la base de données réussie
+2024-07-05 08:32:14 - Connexion à la base de données fermée
+2024-07-05 08:32:21 - Action reçue : addClient
+2024-07-05 08:32:21 - Connexion à la base de données réussie
+2024-07-05 08:32:21 - Connexion à la base de données fermée
+2024-07-05 08:36:56 - Action reçue : addClient
+2024-07-05 08:36:56 - Connexion à la base de données réussie
+2024-07-05 08:36:56 - Connexion à la base de données fermée
+2024-07-05 08:36:59 - Action reçue : addClient
+2024-07-05 08:36:59 - Connexion à la base de données réussie
+2024-07-05 08:36:59 - Connexion à la base de données fermée
+2024-07-05 08:37:18 - Action reçue : addClient
+2024-07-05 08:37:18 - Connexion à la base de données réussie
+2024-07-05 08:37:18 - Connexion à la base de données fermée
+2024-07-05 08:51:31 - Action reçue : addClient
+2024-07-05 08:51:31 - Connexion à la base de données réussie
+2024-07-05 08:51:31 - Connexion à la base de données fermée
+2024-07-05 09:08:54 - Action reçue : sendEmails
+2024-07-05 09:08:54 - Connexion à la base de données réussie
+2024-07-05 09:08:54 - Email trouvé : thibaud.lauber67000@gmail.com
+2024-07-05 09:08:54 - Configuration SMTP trouvée pour thibaud.lauber67000@gmail.com
+2024-07-05 09:08:55 - Facture non réglée trouvée pour le client C006666
+2024-07-05 09:08:56 - E-mail envoyé à thibaud.lauber67000@gmail.com pour le code client C006666.
+2024-07-05 09:08:56 - Connexion à la base de données fermée
+2024-07-08 08:07:43 - Action reçue : addClient
+2024-07-08 08:07:43 - Connexion à la base de données réussie
+2024-07-08 08:07:43 - Connexion à la base de données fermée
+2024-07-08 08:09:10 - Action reçue : addClient
+2024-07-08 08:09:10 - Connexion à la base de données réussie
+2024-07-08 08:09:10 - Connexion à la base de données fermée
+2024-07-08 08:13:35 - Action reçue : sendEmails
+2024-07-08 08:13:35 - Connexion à la base de données réussie
+2024-07-08 08:13:35 - Email trouvé : thibaud.lauber67000@gmail.com
+2024-07-08 08:13:35 - Configuration SMTP trouvée pour thibaud.lauber67000@gmail.com
+2024-07-08 08:13:36 - Facture non réglée trouvée pour le client C006666
+2024-07-08 08:13:37 - E-mail envoyé à thibaud.lauber67000@gmail.com pour le code client C006666.
+2024-07-08 08:13:37 - Connexion à la base de données fermée
+2024-07-08 08:14:15 - Action reçue : addClient
+2024-07-08 08:14:15 - Connexion à la base de données réussie
+2024-07-08 08:14:15 - Connexion à la base de données fermée
+2024-07-08 08:20:08 - Action reçue : addClient
+2024-07-08 08:20:08 - Connexion à la base de données réussie
+2024-07-08 08:20:08 - Connexion à la base de données fermée
+2024-07-08 08:35:34 - Action reçue : addClient
+2024-07-08 08:35:34 - Connexion à la base de données réussie
+2024-07-08 08:35:34 - Connexion à la base de données fermée
+2024-07-08 08:53:37 - Action reçue : addClient
+2024-07-08 08:53:37 - Connexion à la base de données réussie
+2024-07-08 08:53:37 - Connexion à la base de données fermée
+2024-07-08 09:02:53 - Action reçue : addClient
+2024-07-08 09:02:53 - Connexion à la base de données réussie
+2024-07-08 09:02:53 - Connexion à la base de données fermée
+2024-07-08 09:09:13 - Action reçue : addClient
+2024-07-08 09:09:13 - Connexion à la base de données réussie
+2024-07-08 09:09:13 - Connexion à la base de données fermée
+2024-07-08 09:14:23 - Action reçue : addClient
+2024-07-08 09:14:23 - Connexion à la base de données réussie
+2024-07-08 09:14:23 - Connexion à la base de données fermée
+2024-07-08 09:25:21 - Action reçue : addClient
+2024-07-08 09:25:21 - Connexion à la base de données réussie
+2024-07-08 09:25:21 - Connexion à la base de données fermée
+2024-07-08 09:29:21 - Action reçue : addClient
+2024-07-08 09:29:21 - Connexion à la base de données réussie
+2024-07-08 09:29:21 - Connexion à la base de données fermée
+2024-07-08 13:25:50 - Action reçue : addClient
+2024-07-08 13:25:50 - Connexion à la base de données réussie
+2024-07-08 13:25:50 - Clé : :Société, Valeur : ADEX LOGISTIQUE
+2024-07-08 13:25:50 - Clé : :Agence, Valeur : BDforever
+2024-07-08 13:25:50 - Clé : :Code, Valeur : C009999
+2024-07-08 13:25:50 - Clé : :Nom, Valeur : Jack
+2024-07-08 13:25:50 - Clé : :Adresse, Valeur : 
+2024-07-08 13:25:50 - Clé : :Complément, Valeur : 
+2024-07-08 13:25:50 - Clé : :CodePostal, Valeur : 
+2024-07-08 13:25:50 - Clé : :Ville, Valeur : 
+2024-07-08 13:25:50 - Clé : :Pays, Valeur : 
+2024-07-08 13:25:50 - Clé : :NomCourt, Valeur : 
+2024-07-08 13:25:50 - Clé : :VilleLibre, Valeur : 
+2024-07-08 13:25:50 - Clé : :CpCedex, Valeur : 
+2024-07-08 13:25:50 - Clé : :Téléphone, Valeur : 
+2024-07-08 13:25:50 - Clé : :Fax, Valeur : 
+2024-07-08 13:25:50 - Clé : :Courriel, Valeur : 
+2024-07-08 13:25:50 - Clé : :NumIntraComm, Valeur : 
+2024-07-08 13:25:50 - Clé : :NumSiret, Valeur : 
+2024-07-08 13:25:50 - Clé : :CodeRegroupement, Valeur : 
+2024-07-08 13:25:50 - Clé : :DhCréation, Valeur : 2024-07-08 13:25:50
+2024-07-08 13:25:50 - Clé : :CréationPar, Valeur : System
+2024-07-08 13:25:50 - Clé : :DhModif, Valeur : 2024-07-08 13:25:50
+2024-07-08 13:25:50 - Clé : :ModifPar, Valeur : System
+2024-07-08 13:25:50 - Connexion à la base de données fermée
+2024-07-11 07:32:12 - Action reçue : addClient
+2024-07-11 07:32:12 - Connexion à la base de données réussie
+2024-07-11 07:32:12 - Données du client manquantes : adresse, complement, code_postal, ville, pays, nom_court, ville_libre, cp_codex, telephone, fax, courriel, num_intracomm, num_siret, code_regroupement
+2024-07-11 07:32:12 - Connexion à la base de données fermée
+2024-07-11 11:58:52 - Action reçue : addClient
+2024-07-11 11:58:52 - Connexion à la base de données réussie
+2024-07-11 11:58:52 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 11:58:52 - Clé : :agence, Valeur : BDforever
+2024-07-11 11:58:52 - Clé : :code, Valeur : C009999
+2024-07-11 11:58:52 - Clé : :nom, Valeur : Jack
+2024-07-11 11:58:52 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 11:58:52 - Clé : :code_postal, Valeur : 00000
+2024-07-11 11:58:52 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 11:58:52 - Clé : :pays, Valeur : Lune
+2024-07-11 11:58:52 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 11:58:52 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 11:58:52 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 11:58:52 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 11:58:52 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 11:58:52 - Clé : :DhCreation, Valeur : 2024-07-11 11:58:52
+2024-07-11 11:58:52 - Clé : :CreationPar, Valeur : System
+2024-07-11 11:58:52 - Clé : :DhModif, Valeur : 2024-07-11 11:58:52
+2024-07-11 11:58:52 - Clé : :ModifPar, Valeur : System
+2024-07-11 11:58:52 - Connexion à la base de données fermée
+2024-07-11 12:05:39 - Action reçue : addClient
+2024-07-11 12:05:39 - Connexion à la base de données réussie
+2024-07-11 12:05:39 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 12:05:39 - Clé : :agence, Valeur : BDforever
+2024-07-11 12:05:39 - Clé : :code, Valeur : C009999
+2024-07-11 12:05:39 - Clé : :nom, Valeur : Jack
+2024-07-11 12:05:39 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 12:05:39 - Clé : :code_postal, Valeur : 00000
+2024-07-11 12:05:39 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 12:05:39 - Clé : :pays, Valeur : Lune
+2024-07-11 12:05:39 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 12:05:39 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 12:05:39 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 12:05:39 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 12:05:39 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 12:05:39 - Clé : :DhCreation, Valeur : 2024-07-11 12:05:39
+2024-07-11 12:05:39 - Clé : :CreationPar, Valeur : System
+2024-07-11 12:05:39 - Clé : :DhModif, Valeur : 2024-07-11 12:05:39
+2024-07-11 12:05:39 - Clé : :ModifPar, Valeur : System
+2024-07-11 12:05:39 - Connexion à la base de données fermée
+2024-07-11 12:05:41 - Action reçue : addClient
+2024-07-11 12:05:41 - Connexion à la base de données réussie
+2024-07-11 12:05:41 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 12:05:41 - Clé : :agence, Valeur : BDforever
+2024-07-11 12:05:41 - Clé : :code, Valeur : C009999
+2024-07-11 12:05:41 - Clé : :nom, Valeur : Jack
+2024-07-11 12:05:41 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 12:05:41 - Clé : :code_postal, Valeur : 00000
+2024-07-11 12:05:41 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 12:05:41 - Clé : :pays, Valeur : Lune
+2024-07-11 12:05:41 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 12:05:41 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 12:05:41 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 12:05:41 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 12:05:41 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 12:05:41 - Clé : :DhCreation, Valeur : 2024-07-11 12:05:41
+2024-07-11 12:05:41 - Clé : :CreationPar, Valeur : System
+2024-07-11 12:05:41 - Clé : :DhModif, Valeur : 2024-07-11 12:05:41
+2024-07-11 12:05:41 - Clé : :ModifPar, Valeur : System
+2024-07-11 12:05:41 - Connexion à la base de données fermée
+2024-07-11 12:20:50 - Action reçue : addClient
+2024-07-11 12:20:50 - Connexion à la base de données réussie
+2024-07-11 12:20:50 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 12:20:50 - Clé : :agence, Valeur : BDforever
+2024-07-11 12:20:50 - Clé : :code, Valeur : C009999
+2024-07-11 12:20:50 - Clé : :nom, Valeur : Jack
+2024-07-11 12:20:50 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 12:20:50 - Clé : :code_postal, Valeur : 00000
+2024-07-11 12:20:50 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 12:20:50 - Clé : :pays, Valeur : Lune
+2024-07-11 12:20:50 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 12:20:50 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 12:20:50 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 12:20:50 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 12:20:50 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 12:20:50 - Clé : :DhCreation, Valeur : 2024-07-11 12:20:50
+2024-07-11 12:20:50 - Clé : :CreationPar, Valeur : System
+2024-07-11 12:20:50 - Clé : :DhModif, Valeur : 2024-07-11 12:20:50
+2024-07-11 12:20:50 - Clé : :ModifPar, Valeur : System
+2024-07-11 12:20:50 - Connexion à la base de données fermée
+2024-07-11 12:22:09 - Action reçue : addClient
+2024-07-11 12:22:09 - Connexion à la base de données réussie
+2024-07-11 12:22:09 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 12:22:09 - Clé : :agence, Valeur : BDforever
+2024-07-11 12:22:09 - Clé : :code, Valeur : C009999
+2024-07-11 12:22:09 - Clé : :nom, Valeur : Jack
+2024-07-11 12:22:09 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 12:22:09 - Clé : :code_postal, Valeur : 00000
+2024-07-11 12:22:09 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 12:22:09 - Clé : :pays, Valeur : Lune
+2024-07-11 12:22:09 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 12:22:09 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 12:22:09 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 12:22:09 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 12:22:09 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 12:22:09 - Clé : :DhCreation, Valeur : 2024-07-11 12:22:09
+2024-07-11 12:22:09 - Clé : :CreationPar, Valeur : System
+2024-07-11 12:22:09 - Clé : :DhModif, Valeur : 2024-07-11 12:22:09
+2024-07-11 12:22:09 - Clé : :ModifPar, Valeur : System
+2024-07-11 12:22:09 - Connexion à la base de données fermée
+2024-07-11 14:27:21 - Action reçue : addClient
+2024-07-11 14:27:21 - Connexion à la base de données réussie
+2024-07-11 14:27:21 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 14:27:21 - Clé : :agence, Valeur : BDforever
+2024-07-11 14:27:21 - Clé : :code, Valeur : C009999
+2024-07-11 14:27:21 - Clé : :nom, Valeur : Jack
+2024-07-11 14:27:21 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 14:27:21 - Clé : :code_postal, Valeur : 00000
+2024-07-11 14:27:21 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 14:27:21 - Clé : :pays, Valeur : Lune
+2024-07-11 14:27:21 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 14:27:21 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 14:27:21 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 14:27:21 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 14:27:21 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 14:27:21 - Clé : :DhCreation, Valeur : 2024-07-11 14:27:21
+2024-07-11 14:27:21 - Clé : :CreationPar, Valeur : System
+2024-07-11 14:27:21 - Clé : :DhModif, Valeur : 2024-07-11 14:27:21
+2024-07-11 14:27:21 - Clé : :ModifPar, Valeur : System
+2024-07-11 14:27:21 - Connexion à la base de données fermée
+2024-07-11 14:36:44 - Action reçue : addClient
+2024-07-11 14:36:44 - Connexion à la base de données réussie
+2024-07-11 14:36:44 - Clé : ::societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 14:36:44 - Clé : ::agence, Valeur : BDforever
+2024-07-11 14:36:44 - Clé : ::code, Valeur : C009999
+2024-07-11 14:36:44 - Clé : ::nom, Valeur : Jack
+2024-07-11 14:36:44 - Clé : ::adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 14:36:44 - Clé : ::code_postal, Valeur : 00000
+2024-07-11 14:36:44 - Clé : ::ville, Valeur : Lunetopie
+2024-07-11 14:36:44 - Clé : ::pays, Valeur : Lune
+2024-07-11 14:36:44 - Clé : ::ville_libre, Valeur : Lune
+2024-07-11 14:36:44 - Clé : ::telephone, Valeur : 21 07 19 69 00
+2024-07-11 14:36:44 - Clé : ::courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 14:36:44 - Clé : ::num_intracomm, Valeur : FR123456789
+2024-07-11 14:36:44 - Clé : ::num_siret, Valeur : 12345678901234
+2024-07-11 14:36:44 - Clé : :DhCreation, Valeur : 2024-07-11 14:36:44
+2024-07-11 14:36:44 - Clé : :CreationPar, Valeur : System
+2024-07-11 14:36:44 - Clé : :DhModif, Valeur : 2024-07-11 14:36:44
+2024-07-11 14:36:44 - Clé : :ModifPar, Valeur : System
+2024-07-11 14:36:44 - Connexion à la base de données fermée
+2024-07-11 14:49:18 - Action reçue : addClient
+2024-07-11 14:49:18 - Connexion à la base de données réussie
+2024-07-11 14:49:18 - Clé : ::societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 14:49:18 - Clé : ::agence, Valeur : BDforever
+2024-07-11 14:49:18 - Clé : ::code, Valeur : C009999
+2024-07-11 14:49:18 - Clé : ::nom, Valeur : Jack
+2024-07-11 14:49:18 - Clé : ::adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 14:49:18 - Clé : ::code_postal, Valeur : 00000
+2024-07-11 14:49:18 - Clé : ::ville, Valeur : Lunetopie
+2024-07-11 14:49:18 - Clé : ::pays, Valeur : Lune
+2024-07-11 14:49:18 - Clé : ::ville_libre, Valeur : Lune
+2024-07-11 14:49:18 - Clé : ::telephone, Valeur : 21 07 19 69 00
+2024-07-11 14:49:18 - Clé : ::courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 14:49:18 - Clé : ::num_intracomm, Valeur : FR123456789
+2024-07-11 14:49:18 - Clé : ::num_siret, Valeur : 12345678901234
+2024-07-11 14:49:18 - Clé : :DhCreation, Valeur : 2024-07-11 14:49:18
+2024-07-11 14:49:18 - Clé : :CreationPar, Valeur : System
+2024-07-11 14:49:18 - Clé : :DhModif, Valeur : 2024-07-11 14:49:18
+2024-07-11 14:49:18 - Clé : :ModifPar, Valeur : System
+2024-07-11 14:49:18 - Connexion à la base de données fermée
+2024-07-11 14:58:09 - Action reçue : addClient
+2024-07-11 14:58:09 - Connexion à la base de données réussie
+2024-07-11 14:58:09 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 14:58:09 - Clé : :agence, Valeur : BDforever
+2024-07-11 14:58:09 - Clé : :code, Valeur : C009999
+2024-07-11 14:58:09 - Clé : :nom, Valeur : Jack
+2024-07-11 14:58:09 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 14:58:09 - Clé : :code_postal, Valeur : 00000
+2024-07-11 14:58:09 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 14:58:09 - Clé : :pays, Valeur : Lune
+2024-07-11 14:58:09 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 14:58:09 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 14:58:09 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 14:58:09 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 14:58:09 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 14:58:09 - Clé : :DhCreation, Valeur : 2024-07-11 14:58:09
+2024-07-11 14:58:09 - Clé : :CreationPar, Valeur : System
+2024-07-11 14:58:09 - Clé : :DhModif, Valeur : 2024-07-11 14:58:09
+2024-07-11 14:58:09 - Clé : :ModifPar, Valeur : System
+2024-07-11 14:58:09 - Connexion à la base de données fermée
+2024-07-11 14:58:31 - Action reçue : addClient
+2024-07-11 14:58:31 - Connexion à la base de données réussie
+2024-07-11 14:58:31 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 14:58:31 - Clé : :agence, Valeur : BDforever
+2024-07-11 14:58:31 - Clé : :code, Valeur : C009999
+2024-07-11 14:58:31 - Clé : :nom, Valeur : Jack
+2024-07-11 14:58:31 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 14:58:31 - Clé : :code_postal, Valeur : 00000
+2024-07-11 14:58:31 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 14:58:31 - Clé : :pays, Valeur : Lune
+2024-07-11 14:58:31 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 14:58:31 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 14:58:31 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 14:58:31 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 14:58:31 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 14:58:31 - Clé : :DhCreation, Valeur : 2024-07-11 14:58:31
+2024-07-11 14:58:31 - Clé : :CreationPar, Valeur : System
+2024-07-11 14:58:31 - Clé : :DhModif, Valeur : 2024-07-11 14:58:31
+2024-07-11 14:58:31 - Clé : :ModifPar, Valeur : System
+2024-07-11 14:58:31 - Connexion à la base de données fermée
+2024-07-11 15:07:36 - Action reçue : addClient
+2024-07-11 15:07:36 - Connexion à la base de données réussie
+2024-07-11 15:07:36 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 15:07:36 - Clé : :agence, Valeur : BDforever
+2024-07-11 15:07:36 - Clé : :code, Valeur : C009999
+2024-07-11 15:07:36 - Clé : :nom, Valeur : Jack
+2024-07-11 15:07:36 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 15:07:36 - Clé : :code_postal, Valeur : 00000
+2024-07-11 15:07:36 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 15:07:36 - Clé : :pays, Valeur : Lune
+2024-07-11 15:07:36 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 15:07:36 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 15:07:36 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 15:07:36 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 15:07:36 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 15:07:36 - Clé : :DhCreation, Valeur : 2024-07-11 15:07:36
+2024-07-11 15:07:36 - Clé : :CreationPar, Valeur : System
+2024-07-11 15:07:36 - Clé : :DhModif, Valeur : 2024-07-11 15:07:36
+2024-07-11 15:07:36 - Clé : :ModifPar, Valeur : System
+2024-07-11 15:07:36 - Connexion à la base de données fermée
+2024-07-11 15:14:42 - Action reçue : addClient
+2024-07-11 15:14:42 - Connexion à la base de données réussie
+2024-07-11 15:14:42 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-11 15:14:42 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-11 15:14:42 - Clé : :agence, Valeur : BDforever
+2024-07-11 15:14:42 - Clé : :code, Valeur : C009999
+2024-07-11 15:14:42 - Clé : :nom, Valeur : Jack
+2024-07-11 15:14:42 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-11 15:14:42 - Clé : :code_postal, Valeur : 00000
+2024-07-11 15:14:42 - Clé : :ville, Valeur : Lunetopie
+2024-07-11 15:14:42 - Clé : :pays, Valeur : Lune
+2024-07-11 15:14:42 - Clé : :ville_libre, Valeur : Lune
+2024-07-11 15:14:42 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-11 15:14:42 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-11 15:14:42 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-11 15:14:42 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-11 15:14:42 - Clé : :DhCreation, Valeur : 2024-07-11 15:14:42
+2024-07-11 15:14:42 - Clé : :CreationPar, Valeur : System
+2024-07-11 15:14:42 - Clé : :DhModif, Valeur : 2024-07-11 15:14:42
+2024-07-11 15:14:42 - Clé : :ModifPar, Valeur : System
+2024-07-11 15:14:42 - Connexion à la base de données fermée

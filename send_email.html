@@ -37,7 +37,7 @@
             <h3>Ajouter un client manuellement</h3>
             <form id="addClientForm" method="post" class="container mt-4">
                 <input type="hidden" name="action" value="addClient">
-                
+            
                 <div class="form-group">
                     <label for="societe">Société :</label>
                     <input type="text" class="form-control" id="societe" name="societe" required>
@@ -46,9 +46,9 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="agence">Agence :</label>
-                        <input type="text" class="form-control" id="agence" name="agence">
+                        <input type="text" class="form-control" id="agence" name="agence" required>
                     </div>
-                
+            
                     <div class="form-group col-md-6">
                         <label for="code">Code :</label>
                         <input type="text" class="form-control" id="code" name="code" required>
@@ -60,10 +60,10 @@
                         <label for="nom">Nom :</label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
-                
+            
                     <div class="form-group col-md-6">
                         <label for="adresse">Adresse :</label>
-                        <input type="text" class="form-control" id="adresse" name="adresse">
+                        <input type="text" class="form-control" id="adresse" name="adresse" required>
                     </div>
                 </div>
             
@@ -75,19 +75,19 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="code_postal">Code Postal :</label>
-                        <input type="text" class="form-control" id="code_postal" name="code_postal">
+                        <input type="text" class="form-control" id="code_postal" name="code_postal" required>
                     </div>
             
                     <div class="form-group col-md-6">
                         <label for="ville">Ville :</label>
-                        <input type="text" class="form-control" id="ville" name="ville">
+                        <input type="text" class="form-control" id="ville" name="ville" required>
                     </div>
                 </div>
             
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="pays">Pays :</label>
-                        <input type="text" class="form-control" id="pays" name="pays">
+                        <input type="text" class="form-control" id="pays" name="pays" required>
                     </div>
             
                     <div class="form-group col-md-6">
@@ -99,7 +99,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="ville_libre">Ville Libre :</label>
-                        <input type="text" class="form-control" id="ville_libre" name="ville_libre">
+                        <input type="text" class="form-control" id="ville_libre" name="ville_libre" required>
                     </div>
             
                     <div class="form-group col-md-6">
@@ -111,7 +111,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="telephone">Téléphone :</label>
-                        <input type="text" class="form-control" id="telephone" name="telephone">
+                        <input type="text" class="form-control" id="telephone" name="telephone" required>
                     </div>
             
                     <div class="form-group col-md-6">
@@ -122,18 +122,18 @@
             
                 <div class="form-group">
                     <label for="courriel">Courriel :</label>
-                    <input type="email" class="form-control" id="courriel" name="courriel">
+                    <input type="email" class="form-control" id="courriel" name="courriel" required>
                 </div>
             
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="num_intracomm">n° IntraComm :</label>
-                        <input type="text" class="form-control" id="num_intracomm" name="num_intracomm">
+                        <input type="text" class="form-control" id="num_intracomm" name="num_intracomm" required>
                     </div>
             
                     <div class="form-group col-md-6">
                         <label for="num_siret">n° SIRET :</label>
-                        <input type="text" class="form-control" id="num_siret" name="num_siret">
+                        <input type="text" class="form-control" id="num_siret" name="num_siret" required>
                     </div>
                 </div>
             
@@ -167,11 +167,12 @@
                 </div>
             
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">Ajouter le client</button>
+                    <button type="submit" class="btn btn-primary mt-3 mb-4">Ajouter le client</button>
                 </div>
             </form>
-        
+            
             <div id="addClientResponse"></div>
+            <div id="logSection" class="logs"></div>
         </section>
         
     </main>
@@ -186,8 +187,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript centralisé -->
+    
     <script src="JS/centralized.js"></script>
 </body>
 </html>

@@ -110,6 +110,8 @@ try {
 }
 */
 
+date_default_timezone_set('Europe/Paris');
+header('Content-Type: application/json');
 require 'vendor/autoload.php';
 require 'config.php';
 
@@ -121,34 +123,43 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$logFile = 'log.txt';
+$logs = [];
 
 function logMessage($message) {
-    global $logFile;
-    file_put_contents($logFile, date('Y-m-d H:i:s') . " - " . $message . PHP_EOL, FILE_APPEND);
+    global $logs;
+    $logEntry = date('Y-m-d H:i:s') . " - " . $message;
+    $logs[] = $logEntry;
+    file_put_contents('log.txt', $logEntry . PHP_EOL, FILE_APPEND);
 }
 
 function addClient($conn, $clientData) {
     try {
-        $stmt = $conn->prepare("INSERT INTO liste_des_clients (societe, agence, code, nom, adresse, complement, code_postal, ville, pays, nom_court, ville_libre, cp_codex, telephone, fax, courriel, num_intracomm, num_siret, code_regroupement, dh_creation, creation_par, dh_modif, modif_par) VALUES (:societe, :agence, :code, :nom, :adresse, :complement, :code_postal, :ville, :pays, :nom_court, :ville_libre, :cp_codex, :telephone, :fax, :courriel, :num_intracomm, :num_siret, :code_regroupement, :dh_creation, :creation_par, :dh_modif, :modif_par)");
+        foreach ($clientData as $key => $value) {
+            logMessage("Clé : $key, Valeur : " . (is_null($value) ? 'null' : $value));
+        }
         
+        $stmt = $conn->prepare("INSERT INTO liste_des_clients (`Société`, `Agence`, `Code`, `Nom`, `Adresse`, `Complément`, `Code Postal`, `Ville`, `Pays`, `Nom court`, `Ville libre`, `CP Cedex`, `Téléphone`, `Fax`, `Courriel`, `n° IntraComm.`, `n° SIRET`, `Code Regroupement`, `D/H création`, `Création par`, `D/H modif.`, `Modif. par`) VALUES (COALESCE(:Société, NULL), COALESCE(:Agence, NULL), COALESCE(:Code, NULL), COALESCE(:Nom, NULL), COALESCE(:Adresse, NULL), COALESCE(:CodePostal, NULL), COALESCE(:Ville, NULL), COALESCE(:Pays, NULL), COALESCE(:NomCourt, NULL), COALESCE(:VilleLibre, NULL), COALESCE(:CpCedex, NULL), COALESCE(:Téléphone, NULL), COALESCE(:Fax, NULL), COALESCE(:Courriel, NULL), COALESCE(:NumIntraComm, NULL), COALESCE(:NumSiret, NULL), COALESCE(:CodeRegroupement, NULL), :DhCreation, :CreationPar, :DhModif, :ModifPar)");
+
         $stmt->execute($clientData);
         return ['success' => true, 'message' => 'Client ajouté avec succès.'];
     } catch (Exception $e) {
-        return ['success' => false, 'message' => 'Erreur : ' . $e->getMessage()];
+        logMessage("Erreur lors de l'ajout du client : " . $e->getMessage());
+        return ['success' => false, 'message' => 'Erreur lors de l\'ajout du client.'];
     }
 }
 
-$response = ['success' => false, 'message' => ''];
+$response = ['success' => false, 'message' => '', 'logs' => []];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
+        logMessage("Action reçue : $action");
 
         try {
             // Connexion à la base de données
             $conn = new PDO("mysql:host={$databaseConfig['host']};dbname={$databaseConfig['dbname']}", $databaseConfig['username'], $databaseConfig['password']);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            logMessage("Connexion à la base de données réussie");
 
             switch ($action) {
                 case 'sendEmails':
@@ -163,10 +174,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $email = $stmt->fetchColumn();
 
                     if ($email) {
+                        logMessage("Email trouvé : $email");
                         $config = getSmtpConfig($email);
                         if ($config) {
+                            logMessage("Configuration SMTP trouvée pour $email");
+
                             // Charger le fichier Excel
                             $filePath = 'uploads/LISTING_FACT.xlsx';
+                            if (!file_exists($filePath)) {
+                                throw new Exception("Le fichier $filePath n'existe pas.");
+                            }
+
                             $spreadsheet = IOFactory::load($filePath);
                             $sheet = $spreadsheet->getSheet(0);
 
@@ -188,6 +206,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             }
 
                             if ($current_code_client == $code_client_predit && $reglement == 0) {
+                                logMessage("Facture non réglée trouvée pour le client $code_client_predit");
+
                                 $mail = new PHPMailer(true);
 
                                 // Configuration de PHPMailer avec les informations SMTP
@@ -228,112 +248,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     break;
 
                 case 'addClient':
+                    logMessage("Contenu de \$_POST avant construction de \$clientData : " . print_r($_POST, true));
                     // Logic for adding a client
-                    if (isset($_POST['societe'])) {
-                        $clientData = [
-                            ':societe' => $_POST['societe'],
-                            ':agence' => $_POST['agence'],
-                            ':code' => $_POST['code'],
-                            ':nom' => $_POST['nom'],
-                            ':adresse' => $_POST['adresse'],
-                            ':complement' => $_POST['complement'],
-                            ':code_postal' => $_POST['code_postal'],
-                            ':ville' => $_POST['ville'],
-                            ':pays' => $_POST['pays'],
-                            ':nom_court' => $_POST['nom_court'],
-                            ':ville_libre' => $_POST['ville_libre'],
-                            ':cp_codex' => $_POST['cp_codex'],
-                            ':telephone' => $_POST['telephone'],
-                            ':fax' => $_POST['fax'],
-                            ':courriel' => $_POST['courriel'],
-                            ':num_intracomm' => $_POST['num_intracomm'],
-                            ':num_siret' => $_POST['num_siret'],
-                            ':code_regroupement' => $_POST['code_regroupement'],
-                            ':dh_creation' => date('Y-m-d H:i:s'),
-                            ':creation_par' => 'System',
-                            ':dh_modif' => date('Y-m-d H:i:s'),
-                            ':modif_par' => 'System'
-                        ];
+                    $clientData = [];
+                    $requiredFields = [
+                        'societe', 'agence', 'code', 'nom', 'adresse', 'code_postal', 
+                        'ville', 'pays', 'ville_libre', 'telephone', 
+                        'courriel', 'num_intracomm', 'num_siret'
+                    ];
+                    $missingFields = [];
+                    
+                    foreach ($requiredFields as $field) {
+                        $key = ':' . $field;
+                        if (isset($_POST[$field]) && !empty($_POST[$field])) {
+                            $clientData[$key] = $_POST[$field];
+                        } else {
+                            $clientData[$key] = null; // Valeur par défaut
+                        }
+                    }
+
+                    if (empty($missingFields)) {
+                        $clientData[':DhCreation'] = date('Y-m-d H:i:s');
+                        $clientData[':CreationPar'] = 'System';
+                        $clientData[':DhModif'] = date('Y-m-d H:i:s');
+                        $clientData[':ModifPar'] = 'System';
+
+                        foreach ($clientData as $key => $value) {
+                            $logs[] = date('Y-m-d H:i:s') . " - Clé : $key, Valeur : " . (is_null($value) ? 'null' : $value);
+                        }
+                        
                         $response = addClient($conn, $clientData);
                     } else {
-                        $response['message'] = 'Données du client manquantes.';
+                        logMessage("Données du client manquantes : " . implode(', ', $missingFields));
+                        $response['message'] = 'Données du client manquantes : ' . implode(', ', $missingFields);
                     }
                     break;
 
                 default:
+                    logMessage("Erreur : Action non reconnue.");
                     $response['message'] = 'Erreur : Action non reconnue.';
             }
         } catch (Exception $e) {
             logMessage("Erreur : " . $e->getMessage());
             $response['message'] = 'Erreur : ' . $e->getMessage();
         } finally {
-            $conn = null;
+            if (isset($conn)) {
+                $conn = null;
+            }
+            logMessage("Connexion à la base de données fermée");
         }
     } else {
+        logMessage("Erreur : Action non définie.");
         $response['message'] = 'Erreur : Action non définie.';
     }
 }
 
-echo json_encode($response);
+$response['logs'] = $logs;
+echo json_encode($response, JSON_UNESCAPED_UNICODE);
 
-
-
-
-/*
-function addClient($conn, $clientData) {
-    try {
-        $stmt = $conn->prepare("INSERT INTO liste_des_clients (societe, agence, code, nom, adresse, complement, code_postal, ville, pays, nom_court, ville_libre, cp_codex, telephone, fax, courriel, num_intracomm, num_siret, code_regroupement, dh_creation, creation_par, dh_modif, modif_par) VALUES (:societe, :agence, :code, :nom, :adresse, :complement, :code_postal, :ville, :pays, :nom_court, :ville_libre, :cp_codex, :telephone, :fax, :courriel, :num_intracomm, :num_siret, :code_regroupement, :dh_creation, :creation_par, :dh_modif, :modif_par)");
-        
-        $stmt->execute($clientData);
-        return ['success' => true, 'message' => 'Client ajouté avec succès.'];
-    } catch (Exception $e) {
-        return ['success' => false, 'message' => 'Erreur : ' . $e->getMessage()];
-    }
-}
-
-try {
-    $conn = new PDO("mysql:host={$databaseConfig['host']};dbname={$databaseConfig['dbname']}", $databaseConfig['username'], $databaseConfig['password']);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['societe'])) {
-            $clientData = [
-                ':societe' => $_POST['societe'],
-                ':agence' => $_POST['agence'],
-                ':code' => $_POST['code'],
-                ':nom' => $_POST['nom'],
-                ':adresse' => $_POST['adresse'],
-                ':complement' => $_POST['complement'],
-                ':code_postal' => $_POST['code_postal'],
-                ':ville' => $_POST['ville'],
-                ':pays' => $_POST['pays'],
-                ':nom_court' => $_POST['nom_court'],
-                ':ville_libre' => $_POST['ville_libre'],
-                ':cp_codex' => $_POST['cp_codex'],
-                ':telephone' => $_POST['telephone'],
-                ':fax' => $_POST['fax'],
-                ':courriel' => $_POST['courriel'],
-                ':num_intracomm' => $_POST['num_intracomm'],
-                ':num_siret' => $_POST['num_siret'],
-                ':code_regroupement' => $_POST['code_regroupement'],
-                ':dh_creation' => $_POST['dh_creation'],
-                ':creation_par' => $_POST['creation_par'],
-                ':dh_modif' => $_POST['dh_modif'],
-                ':modif_par' => $_POST['modif_par'],
-            ];
-            $response = addClient($conn, $clientData);
-        } else {
-            $filePath = 'uploads/LISTING_FACT.xlsx';
-            sendReminderEmails($conn, $filePath);
-            $response = ['success' => true, 'message' => 'Emails envoyés avec succès.'];
-        }
-
-        echo json_encode($response);
-    }
-} catch (Exception $e) {
-    echo json_encode(['success' => false, 'message' => 'Erreur : ' . $e->getMessage()]);
-} finally {
-    $conn = null;
-}
-*/
 ?>
