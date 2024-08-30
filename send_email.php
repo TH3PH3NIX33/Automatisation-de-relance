@@ -134,17 +134,39 @@ function logMessage($message) {
 
 function addClient($conn, $clientData) {
     try {
-        foreach ($clientData as $key => $value) {
-            logMessage("Clé : $key, Valeur : " . (is_null($value) ? 'null' : $value));
-        }
-        
-        $stmt = $conn->prepare("INSERT INTO liste_des_clients (`Société`, `Agence`, `Code`, `Nom`, `Adresse`, `Complément`, `Code Postal`, `Ville`, `Pays`, `Nom court`, `Ville libre`, `CP Cedex`, `Téléphone`, `Fax`, `Courriel`, `n° IntraComm.`, `n° SIRET`, `Code Regroupement`, `D/H création`, `Création par`, `D/H modif.`, `Modif. par`) VALUES (COALESCE(:Société, NULL), COALESCE(:Agence, NULL), COALESCE(:Code, NULL), COALESCE(:Nom, NULL), COALESCE(:Adresse, NULL), COALESCE(:CodePostal, NULL), COALESCE(:Ville, NULL), COALESCE(:Pays, NULL), COALESCE(:NomCourt, NULL), COALESCE(:VilleLibre, NULL), COALESCE(:CpCedex, NULL), COALESCE(:Téléphone, NULL), COALESCE(:Fax, NULL), COALESCE(:Courriel, NULL), COALESCE(:NumIntraComm, NULL), COALESCE(:NumSiret, NULL), COALESCE(:CodeRegroupement, NULL), :DhCreation, :CreationPar, :DhModif, :ModifPar)");
+        $sql = "INSERT INTO `liste_des_clients` (
+            `Sinari Network`, `Société`, `Agence`, `Code`, `Nom`, `Adresse`, `Complément`,
+            `Code Postal`, `Ville`, `Pays`, `Nom court`, `Ville Libre`, `CP Cedex`, `Téléphone`, `Fax`, `Courriel`, 
+            `n° IntraComm.`, `n° SIRET`, `Code Regroupement`, `D/H création`, `Création Par`, 
+            `D/H modif.`, `Modif. par`
+        ) VALUES (
+            :Société, :Agence, :Code, :Nom, :Adresse, :Complément,
+            :Code_Postal, :Ville, :Pays, :Nom_court, :Ville_Libre, :CP_Cedex, :Téléphone, :Fax, :Courriel, 
+            :n°_IntraComm_, :n°_SIRET, :Code_Regroupement, :DhCreation, :CreationPar, 
+            :DhModif, :Modif_par
+        )";
 
-        $stmt->execute($clientData);
-        return ['success' => true, 'message' => 'Client ajouté avec succès.'];
-    } catch (Exception $e) {
-        logMessage("Erreur lors de l'ajout du client : " . $e->getMessage());
-        return ['success' => false, 'message' => 'Erreur lors de l\'ajout du client.'];
+        $stmt = $conn->prepare($sql);
+
+        // Log et bind des valeurs
+        foreach ($clientData as $key => $value) {
+            // Vérifier si la clé existe et si la valeur n'est pas vide
+            if (isset($clientData[$key]) && !empty($clientData[$key])) {
+                logMessage("Binding parameter $key with value: " . ($value === null ? 'NULL' : $value));
+                // Assurez-vous que les chaînes de caractères sont liées en tant que PDO::PARAM_STR
+                $stmt->bindValue($key, $value, PDO::PARAM_STR);
+            } else {
+                // Si la valeur est vide, lier NULL à la place
+                $stmt->bindValue($key, null, PDO::PARAM_NULL);
+            }
+        }
+
+        $stmt->execute();
+        logMessage("Requête d'insertion exécutée avec succès.");
+        return ["status" => "success", "message" => "Client ajouté avec succès."];
+    } catch (PDOException $e) {
+        logMessage("Erreur lors de l'insertion du client : " . $e->getMessage());
+        return ["status" => "error", "message" => "Erreur lors de l'insertion du client : " . $e->getMessage()];
     }
 }
 
@@ -166,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $code_client_predit = 'C006666';
 
                     // Préparation de la requête SQL pour récupérer l'email du client prédit
-                    $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE code = :code_client");
+                    $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE Code = :code_client");
                     $stmt->bindParam(':code_client', $code_client_predit);
 
                     // Exécuter la requête pour récupérer l'email du client
@@ -249,39 +271,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 case 'addClient':
                     logMessage("Contenu de \$_POST avant construction de \$clientData : " . print_r($_POST, true));
-                    // Logic for adding a client
-                    $clientData = [];
-                    $requiredFields = [
-                        'societe', 'agence', 'code', 'nom', 'adresse', 'code_postal', 
-                        'ville', 'pays', 'ville_libre', 'telephone', 
-                        'courriel', 'num_intracomm', 'num_siret'
+
+                    $clientData = [
+                        ':Sinari_Network' => isset($_POST['Sinari_Network']) ? $_POST['Sinari_Network'] : null,
+                        ':Société' => isset($_POST['Société']) ? $_POST['Société'] : null,
+                        ':Agence' => isset($_POST['Agence']) ? $_POST['Agence'] : null,
+                        ':Code' => isset($_POST['Code']) ? $_POST['Code'] : null,
+                        ':Nom' => isset($_POST['Nom']) ? $_POST['Nom'] : null,
+                        ':Adresse' => isset($_POST['Adresse']) ? $_POST['Adresse'] : null,
+                        ':Complément' => isset($_POST['Complément']) ? $_POST['Complément'] : null,
+                        ':Code_Postal' => isset($_POST['Code_Postal']) ? $_POST['Code_Postal'] : null,
+                        ':Ville' => isset($_POST['Ville']) ? $_POST['Ville'] : null,
+                        ':Pays' => isset($_POST['Pays']) ? $_POST['Pays'] : null,
+                        ':Nom_court' => isset($_POST['Nom_court']) ? $_POST['Nom_court'] : null,
+                        ':Ville_Libre' => isset($_POST['Ville_Libre']) ? $_POST['Ville_Libre'] : null,
+                        ':CP_Cedex' => isset($_POST['CP_Cedex']) ? $_POST['CP_Cedex'] : null,
+                        ':Téléphone' => isset($_POST['Téléphone']) ? $_POST['Téléphone'] : null,
+                        ':Fax' => isset($_POST['Fax']) ? $_POST['Fax'] : null,
+                        ':Courriel' => isset($_POST['Courriel']) ? $_POST['Courriel'] : null,
+                        ':n°_IntraComm_' => isset($_POST['n°_IntraComm_']) ? $_POST['n°_IntraComm_'] : null,
+                        ':n°_SIRET' => isset($_POST['n°_SIRET']) ? $_POST['n°_SIRET'] : null,
+                        ':Code_Regroupement' => isset($_POST['Code_Regroupement']) ? $_POST['Code_Regroupement'] : null,
+                        ':DhCreation' => date('Y-m-d H:i:s'),
+                        ':CreationPar' => 'System',
+                        ':DhModif' => date('Y-m-d H:i:s'),
+                        ':Modif_par' => 'System',
                     ];
-                    $missingFields = [];
                     
-                    foreach ($requiredFields as $field) {
-                        $key = ':' . $field;
-                        if (isset($_POST[$field]) && !empty($_POST[$field])) {
-                            $clientData[$key] = $_POST[$field];
-                        } else {
-                            $clientData[$key] = null; // Valeur par défaut
-                        }
-                    }
-
-                    if (empty($missingFields)) {
-                        $clientData[':DhCreation'] = date('Y-m-d H:i:s');
-                        $clientData[':CreationPar'] = 'System';
-                        $clientData[':DhModif'] = date('Y-m-d H:i:s');
-                        $clientData[':ModifPar'] = 'System';
-
-                        foreach ($clientData as $key => $value) {
-                            $logs[] = date('Y-m-d H:i:s') . " - Clé : $key, Valeur : " . (is_null($value) ? 'null' : $value);
-                        }
-                        
-                        $response = addClient($conn, $clientData);
-                    } else {
-                        logMessage("Données du client manquantes : " . implode(', ', $missingFields));
-                        $response['message'] = 'Données du client manquantes : ' . implode(', ', $missingFields);
-                    }
+                    $response = addClient($conn, $clientData);
                     break;
 
                 default:
@@ -306,4 +323,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $response['logs'] = $logs;
 echo json_encode($response, JSON_UNESCAPED_UNICODE);
 
-?>
+/*
+                    $clientData = [];
+                    $requiredFields = [
+                        `Sinari Network`, `Société`, `Agence`, `Code`, `Nom`, `Adresse`, `Complément`,
+                        `Code Postal`, `Ville`, `Pays`, `Nom court`, `Ville Libre`, `CP Cedex`, `Téléphone`, `Fax`, `Courriel`, 
+                        `n° IntraComm.`, `n° SIRET`, `Code Regroupement`, `D/H création`, `Création Par`, 
+                        `D/H modif.`, `Modif. par`
+                    ];
+                    
+                    foreach ($requiredFields as $field) {
+                        $key = ':' . str_replace(' ', '_', $field);
+                        if (isset($_POST[$field]) && !empty($_POST[$field])) {
+                            $clientData[$key] = $_POST[$field];
+                        } else {
+                            $clientData[$key] = "null";
+                        }
+                    }
+
+                    // Ajout des valeurs supplémentaires
+                    $clientData[':D/H création'] = date('Y-m-d H:i:s');
+                    $clientData[':Création Par'] = 'System';
+                    $clientData[':D/H modif.'] = date('Y-m-d H:i:s');
+                    $clientData[':Modif. par'] = 'System';
+
+                    foreach ($clientData as $key => $value) {
+                        $logs[] = date('Y-m-d H:i:s') . " - Clé : $key, Valeur : " . (is_null($value) ? 'null' : $value);
+                    }
+*/

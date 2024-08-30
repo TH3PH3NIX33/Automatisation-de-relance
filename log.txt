@@ -533,3 +533,737 @@
 2024-07-11 15:14:42 - Clé : :DhModif, Valeur : 2024-07-11 15:14:42
 2024-07-11 15:14:42 - Clé : :ModifPar, Valeur : System
 2024-07-11 15:14:42 - Connexion à la base de données fermée
+2024-07-15 11:23:26 - Action reçue : addClient
+2024-07-15 11:23:26 - Connexion à la base de données réussie
+2024-07-15 11:23:26 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-15 11:23:26 - Clé : :societe, Valeur : ADEX LOGISTIQUE
+2024-07-15 11:23:26 - Clé : :agence, Valeur : BDforever
+2024-07-15 11:23:26 - Clé : :code, Valeur : C009999
+2024-07-15 11:23:26 - Clé : :nom, Valeur : Jack
+2024-07-15 11:23:26 - Clé : :adresse, Valeur : 14 Boulevar de la Lune 
+2024-07-15 11:23:26 - Clé : :code_postal, Valeur : 00000
+2024-07-15 11:23:26 - Clé : :ville, Valeur : Lunetopie
+2024-07-15 11:23:26 - Clé : :pays, Valeur : Lune
+2024-07-15 11:23:26 - Clé : :ville_libre, Valeur : Lune
+2024-07-15 11:23:26 - Clé : :telephone, Valeur : 21 07 19 69 00
+2024-07-15 11:23:26 - Clé : :courriel, Valeur : La.Lune@Lunemail.com
+2024-07-15 11:23:26 - Clé : :num_intracomm, Valeur : FR123456789
+2024-07-15 11:23:26 - Clé : :num_siret, Valeur : 12345678901234
+2024-07-15 11:23:26 - Clé : :DhCreation, Valeur : 2024-07-15 11:23:26
+2024-07-15 11:23:26 - Clé : :CreationPar, Valeur : System
+2024-07-15 11:23:26 - Clé : :DhModif, Valeur : 2024-07-15 11:23:26
+2024-07-15 11:23:26 - Clé : :ModifPar, Valeur : System
+2024-07-15 11:23:26 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-15 11:23:26 - Binding parameter :agence with value: BDforever
+2024-07-15 11:23:26 - Binding parameter :code with value: C009999
+2024-07-15 11:23:26 - Binding parameter :nom with value: Jack
+2024-07-15 11:23:26 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-15 11:23:26 - Binding parameter :code_postal with value: 00000
+2024-07-15 11:23:26 - Binding parameter :ville with value: Lunetopie
+2024-07-15 11:23:26 - Binding parameter :pays with value: Lune
+2024-07-15 11:23:26 - Binding parameter :ville_libre with value: Lune
+2024-07-15 11:23:26 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-15 11:23:26 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-15 11:23:26 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-15 11:23:26 - Binding parameter :num_siret with value: 12345678901234
+2024-07-15 11:23:26 - Binding parameter :DhCreation with value: 2024-07-15 11:23:26
+2024-07-15 11:23:26 - Binding parameter :CreationPar with value: System
+2024-07-15 11:23:26 - Binding parameter :DhModif with value: 2024-07-15 11:23:26
+2024-07-15 11:23:26 - Binding parameter :ModifPar with value: System
+2024-07-15 11:23:26 - Connexion à la base de données fermée
+2024-07-16 10:57:34 - Action reçue : addClient
+2024-07-16 10:57:34 - Connexion à la base de données réussie
+2024-07-16 10:57:34 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 10:57:34 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 10:57:34 - Binding parameter :agence with value: BDforever
+2024-07-16 10:57:34 - Binding parameter :code with value: C009999
+2024-07-16 10:57:34 - Binding parameter :nom with value: Jack
+2024-07-16 10:57:34 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 10:57:34 - Binding parameter :code_postal with value: 00000
+2024-07-16 10:57:34 - Binding parameter :ville with value: Lunetopie
+2024-07-16 10:57:34 - Binding parameter :pays with value: Lune
+2024-07-16 10:57:34 - Binding parameter :ville_libre with value: Lune
+2024-07-16 10:57:34 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 10:57:34 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 10:57:34 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 10:57:34 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 10:57:34 - Binding parameter :DhCreation with value: 2024-07-16 10:57:34
+2024-07-16 10:57:34 - Binding parameter :CreationPar with value: System
+2024-07-16 10:57:34 - Binding parameter :DhModif with value: 2024-07-16 10:57:34
+2024-07-16 10:57:34 - Binding parameter :ModifPar with value: System
+2024-07-16 10:57:34 - Erreur lors de l'insertion du client : SQLSTATE[42S02]: Base table or view not found: 1146 La table 'client_adex_logistique.clients' n'existe pas
+2024-07-16 10:57:34 - Connexion à la base de données fermée
+2024-07-16 10:58:06 - Action reçue : addClient
+2024-07-16 10:58:06 - Connexion à la base de données réussie
+2024-07-16 10:58:06 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 10:58:06 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 10:58:06 - Binding parameter :agence with value: BDforever
+2024-07-16 10:58:06 - Binding parameter :code with value: C009999
+2024-07-16 10:58:06 - Binding parameter :nom with value: Jack
+2024-07-16 10:58:06 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 10:58:06 - Binding parameter :code_postal with value: 00000
+2024-07-16 10:58:06 - Binding parameter :ville with value: Lunetopie
+2024-07-16 10:58:06 - Binding parameter :pays with value: Lune
+2024-07-16 10:58:06 - Binding parameter :ville_libre with value: Lune
+2024-07-16 10:58:06 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 10:58:06 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 10:58:06 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 10:58:06 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 10:58:06 - Binding parameter :DhCreation with value: 2024-07-16 10:58:06
+2024-07-16 10:58:06 - Binding parameter :CreationPar with value: System
+2024-07-16 10:58:06 - Binding parameter :DhModif with value: 2024-07-16 10:58:06
+2024-07-16 10:58:06 - Binding parameter :ModifPar with value: System
+2024-07-16 10:58:06 - Erreur lors de l'insertion du client : SQLSTATE[42S02]: Base table or view not found: 1146 La table 'client_adex_logistique.clients' n'existe pas
+2024-07-16 10:58:06 - Connexion à la base de données fermée
+2024-07-16 11:03:05 - Action reçue : addClient
+2024-07-16 11:03:05 - Connexion à la base de données réussie
+2024-07-16 11:03:05 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:03:05 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:03:05 - Binding parameter :agence with value: BDforever
+2024-07-16 11:03:05 - Binding parameter :code with value: C009999
+2024-07-16 11:03:05 - Binding parameter :nom with value: Jack
+2024-07-16 11:03:05 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:03:05 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:03:05 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:03:05 - Binding parameter :pays with value: Lune
+2024-07-16 11:03:05 - Binding parameter :ville_libre with value: Lune
+2024-07-16 11:03:05 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:03:05 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:03:05 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:03:05 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:03:05 - Binding parameter :DhCreation with value: 2024-07-16 11:03:05
+2024-07-16 11:03:05 - Binding parameter :CreationPar with value: System
+2024-07-16 11:03:05 - Binding parameter :DhModif with value: 2024-07-16 11:03:05
+2024-07-16 11:03:05 - Binding parameter :ModifPar with value: System
+2024-07-16 11:03:05 - Erreur lors de l'insertion du client : SQLSTATE[42S22]: Column not found: 1054 Champ 'societe' inconnu dans field list
+2024-07-16 11:03:05 - Connexion à la base de données fermée
+2024-07-16 11:03:32 - Action reçue : addClient
+2024-07-16 11:03:32 - Connexion à la base de données réussie
+2024-07-16 11:03:32 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:03:32 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:03:32 - Binding parameter :agence with value: BDforever
+2024-07-16 11:03:32 - Binding parameter :code with value: C009999
+2024-07-16 11:03:32 - Binding parameter :nom with value: Jack
+2024-07-16 11:03:32 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:03:32 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:03:32 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:03:32 - Binding parameter :pays with value: Lune
+2024-07-16 11:03:32 - Binding parameter :ville_libre with value: Lune
+2024-07-16 11:03:32 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:03:32 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:03:32 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:03:32 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:03:32 - Binding parameter :DhCreation with value: 2024-07-16 11:03:32
+2024-07-16 11:03:32 - Binding parameter :CreationPar with value: System
+2024-07-16 11:03:32 - Binding parameter :DhModif with value: 2024-07-16 11:03:32
+2024-07-16 11:03:32 - Binding parameter :ModifPar with value: System
+2024-07-16 11:03:32 - Erreur lors de l'insertion du client : SQLSTATE[42S22]: Column not found: 1054 Champ 'societe' inconnu dans field list
+2024-07-16 11:03:32 - Connexion à la base de données fermée
+2024-07-16 11:16:54 - Action reçue : addClient
+2024-07-16 11:16:54 - Connexion à la base de données réussie
+2024-07-16 11:16:54 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:16:54 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:16:54 - Binding parameter :agence with value: BDforever
+2024-07-16 11:16:54 - Binding parameter :code with value: C009999
+2024-07-16 11:16:54 - Binding parameter :nom with value: Jack
+2024-07-16 11:16:54 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:16:54 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:16:54 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:16:54 - Binding parameter :pays with value: Lune
+2024-07-16 11:16:54 - Binding parameter :ville_libre with value: Lune
+2024-07-16 11:16:54 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:16:54 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:16:54 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:16:54 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:16:54 - Binding parameter :DhCreation with value: 2024-07-16 11:16:54
+2024-07-16 11:16:54 - Binding parameter :CreationPar with value: System
+2024-07-16 11:16:54 - Binding parameter :DhModif with value: 2024-07-16 11:16:54
+2024-07-16 11:16:54 - Binding parameter :ModifPar with value: System
+2024-07-16 11:16:54 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+2024-07-16 11:16:54 - Connexion à la base de données fermée
+2024-07-16 11:18:19 - Action reçue : addClient
+2024-07-16 11:18:19 - Connexion à la base de données réussie
+2024-07-16 11:18:19 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:18:19 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:18:19 - Binding parameter :agence with value: BDforever
+2024-07-16 11:18:19 - Binding parameter :code with value: C009999
+2024-07-16 11:18:19 - Binding parameter :nom with value: Jack
+2024-07-16 11:18:19 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:18:19 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:18:19 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:18:19 - Binding parameter :pays with value: Lune
+2024-07-16 11:18:19 - Binding parameter :ville_libre with value: Lune
+2024-07-16 11:18:19 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:18:19 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:18:19 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:18:19 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:18:19 - Binding parameter :DhCreation with value: 2024-07-16 11:18:19
+2024-07-16 11:18:19 - Binding parameter :CreationPar with value: System
+2024-07-16 11:18:19 - Binding parameter :DhModif with value: 2024-07-16 11:18:19
+2024-07-16 11:18:19 - Binding parameter :ModifPar with value: System
+2024-07-16 11:18:19 - Erreur lors de l'insertion du client : SQLSTATE[42S22]: Column not found: 1054 Champ 'Num Intracomm' inconnu dans field list
+2024-07-16 11:18:19 - Connexion à la base de données fermée
+2024-07-16 11:30:20 - Action reçue : addClient
+2024-07-16 11:30:20 - Connexion à la base de données réussie
+2024-07-16 11:30:20 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:30:20 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:30:20 - Binding parameter :agence with value: BDforever
+2024-07-16 11:30:20 - Binding parameter :code with value: C009999
+2024-07-16 11:30:20 - Binding parameter :nom with value: Jack
+2024-07-16 11:30:20 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:30:20 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:30:20 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:30:20 - Binding parameter :pays with value: Lune
+2024-07-16 11:30:20 - Binding parameter :ville_libre with value: Lune
+2024-07-16 11:30:20 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:30:20 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:30:20 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:30:20 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:30:20 - Binding parameter :DhCreation with value: 2024-07-16 11:30:20
+2024-07-16 11:30:20 - Binding parameter :CreationPar with value: System
+2024-07-16 11:30:20 - Binding parameter :DhModif with value: 2024-07-16 11:30:20
+2024-07-16 11:30:20 - Binding parameter :ModifPar with value: System
+2024-07-16 11:30:20 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-16 11:30:20 - Connexion à la base de données fermée
+2024-07-16 11:44:26 - Action reçue : addClient
+2024-07-16 11:44:26 - Connexion à la base de données réussie
+2024-07-16 11:44:26 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:44:26 - Binding parameter :Société with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Agence with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Code with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Nom with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Adresse with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Code_Postal with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Ville with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Pays with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Ville_Libre with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Téléphone with value: NULL
+2024-07-16 11:44:26 - Binding parameter :Courriel with value: NULL
+2024-07-16 11:44:26 - Binding parameter :n°_IntraComm. with value: NULL
+2024-07-16 11:44:26 - Binding parameter :n°_SIRET with value: NULL
+2024-07-16 11:44:26 - Binding parameter :DhCreation with value: 2024-07-16 11:44:26
+2024-07-16 11:44:26 - Binding parameter :CreationPar with value: System
+2024-07-16 11:44:26 - Binding parameter :DhModif with value: 2024-07-16 11:44:26
+2024-07-16 11:44:26 - Binding parameter :ModifPar with value: System
+2024-07-16 11:44:26 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-16 11:44:26 - Connexion à la base de données fermée
+2024-07-16 11:56:05 - Action reçue : addClient
+2024-07-16 11:56:05 - Connexion à la base de données réussie
+2024-07-16 11:56:05 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [societe] => ADEX LOGISTIQUE
+    [agence] => BDforever
+    [code] => C009999
+    [nom] => Jack
+    [adresse] => 14 Boulevar de la Lune 
+    [complement] => 
+    [code_postal] => 00000
+    [ville] => Lunetopie
+    [pays] => Lune
+    [nom_court] => 
+    [ville_libre] => Lune
+    [cp_codex] => 
+    [telephone] => 21 07 19 69 00
+    [fax] => 
+    [courriel] => La.Lune@Lunemail.com
+    [num_intracomm] => FR123456789
+    [num_siret] => 12345678901234
+    [code_regroupement] => 
+    [dh_creation] => 
+    [creation_par] => 
+    [dh_modif] => 
+    [modif_par] => 
+)
+
+2024-07-16 11:56:05 - Binding parameter :societe with value: ADEX LOGISTIQUE
+2024-07-16 11:56:05 - Binding parameter :agence with value: BDforever
+2024-07-16 11:56:05 - Binding parameter :code with value: C009999
+2024-07-16 11:56:05 - Binding parameter :nom with value: Jack
+2024-07-16 11:56:05 - Binding parameter :adresse with value: 14 Boulevar de la Lune 
+2024-07-16 11:56:05 - Binding parameter :code_postal with value: 00000
+2024-07-16 11:56:05 - Binding parameter :ville with value: Lunetopie
+2024-07-16 11:56:05 - Binding parameter :pays with value: Lune
+2024-07-16 11:56:05 - Binding parameter :telephone with value: 21 07 19 69 00
+2024-07-16 11:56:05 - Binding parameter :courriel with value: La.Lune@Lunemail.com
+2024-07-16 11:56:05 - Binding parameter :num_intracomm with value: FR123456789
+2024-07-16 11:56:05 - Binding parameter :num_siret with value: 12345678901234
+2024-07-16 11:56:05 - Binding parameter :DhCreation with value: 2024-07-16 11:56:05
+2024-07-16 11:56:05 - Binding parameter :CreationPar with value: System
+2024-07-16 11:56:05 - Binding parameter :DhModif with value: 2024-07-16 11:56:05
+2024-07-16 11:56:05 - Binding parameter :ModifPar with value: System
+2024-07-16 11:56:05 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-16 11:56:05 - Connexion à la base de données fermée
+2024-07-17 14:04:42 - Action reçue : addClient
+2024-07-17 14:04:42 - Connexion à la base de données réussie
+2024-07-17 14:04:42 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:04:42 - Binding parameter :Société with value: ADEX LOGISTIQUE
+2024-07-17 14:04:42 - Binding parameter :Agence with value: Lunaire
+2024-07-17 14:04:42 - Binding parameter :Code with value: C009999
+2024-07-17 14:04:42 - Binding parameter :Nom with value: Jack
+2024-07-17 14:04:42 - Binding parameter :Adresse with value: 12 Boulevar de la lune
+2024-07-17 14:04:42 - Binding parameter :Ville with value: Lunotopie
+2024-07-17 14:04:42 - Binding parameter :Pays with value: Lune
+2024-07-17 14:04:42 - Binding parameter :Téléphone with value: 21 07 19 69 00
+2024-07-17 14:04:42 - Binding parameter :Courriel with value: Lunotopie@gmail.com
+2024-07-17 14:04:42 - Binding parameter :DhCreation with value: 2024-07-17 14:04:42
+2024-07-17 14:04:42 - Binding parameter :CreationPar with value: System
+2024-07-17 14:04:42 - Binding parameter :DhModif with value: 2024-07-17 14:04:42
+2024-07-17 14:04:42 - Binding parameter :Modif_par with value: System
+2024-07-17 14:04:42 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:04:42 - Connexion à la base de données fermée
+2024-07-17 14:33:08 - Action reçue : addClient
+2024-07-17 14:33:08 - Connexion à la base de données réussie
+2024-07-17 14:33:08 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Sinari_Network] => 
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:33:09 - Binding parameter :DhCreation with value: 2024-07-17 14:33:09
+2024-07-17 14:33:09 - Binding parameter :CreationPar with value: System
+2024-07-17 14:33:09 - Binding parameter :DhModif with value: 2024-07-17 14:33:09
+2024-07-17 14:33:09 - Binding parameter :Modif_par with value: System
+2024-07-17 14:33:09 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:33:09 - Connexion à la base de données fermée
+2024-07-17 14:41:33 - Action reçue : addClient
+2024-07-17 14:41:33 - Connexion à la base de données réussie
+2024-07-17 14:41:33 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Sinari_Network] => 
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:41:33 - Binding parameter :D/H création with value: 2024-07-17 14:41:33
+2024-07-17 14:41:33 - Binding parameter :Création Par with value: System
+2024-07-17 14:41:33 - Binding parameter :D/H modif. with value: 2024-07-17 14:41:33
+2024-07-17 14:41:33 - Binding parameter :Modif. par with value: System
+2024-07-17 14:41:33 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:41:33 - Connexion à la base de données fermée
+2024-07-17 14:43:53 - Action reçue : addClient
+2024-07-17 14:43:53 - Connexion à la base de données réussie
+2024-07-17 14:43:53 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Sinari_Network] => 
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:43:54 - Binding parameter : with value: null
+2024-07-17 14:43:54 - Binding parameter :D/H création with value: 2024-07-17 14:43:54
+2024-07-17 14:43:54 - Binding parameter :Création Par with value: System
+2024-07-17 14:43:54 - Binding parameter :D/H modif. with value: 2024-07-17 14:43:54
+2024-07-17 14:43:54 - Binding parameter :Modif. par with value: System
+2024-07-17 14:43:54 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:43:54 - Connexion à la base de données fermée
+2024-07-17 14:44:50 - Action reçue : addClient
+2024-07-17 14:44:50 - Connexion à la base de données réussie
+2024-07-17 14:44:50 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Sinari_Network] => 
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:44:50 - Binding parameter : with value: null
+2024-07-17 14:44:50 - Binding parameter :D/H création with value: 2024-07-17 14:44:50
+2024-07-17 14:44:50 - Binding parameter :Création Par with value: System
+2024-07-17 14:44:50 - Binding parameter :D/H modif. with value: 2024-07-17 14:44:50
+2024-07-17 14:44:50 - Binding parameter :Modif. par with value: System
+2024-07-17 14:44:50 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:44:50 - Connexion à la base de données fermée
+2024-07-17 14:53:28 - Action reçue : addClient
+2024-07-17 14:53:28 - Connexion à la base de données réussie
+2024-07-17 14:53:28 - Contenu de $_POST avant construction de $clientData : Array
+(
+    [action] => addClient
+    [Sinari_Network] => 
+    [Société] => ADEX LOGISTIQUE
+    [Agence] => Lunaire
+    [Code] => C009999
+    [Nom] => Jack
+    [Adresse] => 12 Boulevar de la lune
+    [Complément] => 
+    [Code_Postal] => 00000
+    [Ville] => Lunotopie
+    [Pays] => Lune
+    [Nom_court] => 
+    [Ville_Libre] => Lunotopie
+    [CP_Cedex] => 
+    [Téléphone] => 21 07 19 69 00
+    [Fax] => 
+    [Courriel] => Lunotopie@gmail.com
+    [n°_IntraComm_] => FR123456789
+    [n°_SIRET] => 1234567890123
+    [Code_Regroupement] => 
+    [D/H_création] => 
+    [Création_Par] => 
+    [D/H_modif_] => 
+    [Modif__par] => 
+)
+
+2024-07-17 14:53:28 - Binding parameter :Société with value: ADEX LOGISTIQUE
+2024-07-17 14:53:28 - Binding parameter :Agence with value: Lunaire
+2024-07-17 14:53:28 - Binding parameter :Code with value: C009999
+2024-07-17 14:53:28 - Binding parameter :Nom with value: Jack
+2024-07-17 14:53:28 - Binding parameter :Adresse with value: 12 Boulevar de la lune
+2024-07-17 14:53:28 - Binding parameter :Code_Postal with value: 00000
+2024-07-17 14:53:28 - Binding parameter :Ville with value: Lunotopie
+2024-07-17 14:53:28 - Binding parameter :Pays with value: Lune
+2024-07-17 14:53:28 - Binding parameter :Ville_Libre with value: Lunotopie
+2024-07-17 14:53:28 - Binding parameter :Téléphone with value: 21 07 19 69 00
+2024-07-17 14:53:28 - Binding parameter :Courriel with value: Lunotopie@gmail.com
+2024-07-17 14:53:28 - Binding parameter :n°_IntraComm_ with value: FR123456789
+2024-07-17 14:53:28 - Binding parameter :n°_SIRET with value: 1234567890123
+2024-07-17 14:53:28 - Binding parameter :DhCreation with value: 2024-07-17 14:53:28
+2024-07-17 14:53:28 - Binding parameter :CreationPar with value: System
+2024-07-17 14:53:28 - Binding parameter :DhModif with value: 2024-07-17 14:53:28
+2024-07-17 14:53:28 - Binding parameter :Modif_par with value: System
+2024-07-17 14:53:28 - Erreur lors de l'insertion du client : SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-07-17 14:53:28 - Connexion à la base de données fermée
