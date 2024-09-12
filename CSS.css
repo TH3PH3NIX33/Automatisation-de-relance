@@ -1,40 +1,55 @@
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333;
-    color: #fff;
+    background-color: #333; /* Fond de la page */
+    color: #fff; /* Couleur du texte */
+    box-sizing: border-box;
 }
+
+/* Header */
 header {
-    background-color: #c0392b;
+    background-color: #c0392b; /* Bande rouge du haut */
     padding: 20px;
     text-align: center;
 }
+
+/* Navigation */
 nav {
-    background-color: #444;
+    background-color: #444; /* Bande de navigation sombre */
     padding: 10px;
     text-align: center;
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
 }
+
 nav a:hover {
     background-color: #666;
 }
+
+/* Section principale */
 section {
     padding: 20px;
 }
+
+/* Footer */
 footer {
-    background-color: #c0392b;
+    background-color: #c0392b; /* Bande rouge du bas */
     padding: 20px;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    margin-top: 20px;
 }
+
+/* Messages de succès et d'erreur */
 .success {
     color: green;
 }
@@ -42,4 +57,94 @@ footer {
 .error {
     color: red;
     font-weight: bold;
+}
+
+/* Conteneur du tableau */
+.table-container {
+    margin-bottom: 60px;
+}
+
+/* Styles du tableau */
+.table {
+    background-color: #333; /* Fond du tableau */
+    color: #fff;
+}
+
+.table thead {
+    background-color: #444; /* Fond des en-têtes de tableau */
+    color: #fff;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #333; /* Fond des lignes impaires */
+    color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #444; /* Fond des lignes paires */
+    color: #fff;
+}
+
+/* Styles pour le modal */
+.modal-content {
+    background-color: #444; /* Fond du modal */
+    color: #fff; /* Couleur du texte dans le modal */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.modal-header {
+    background-color: #c0392b; /* Bande rouge en haut du modal */
+    color: #fff;
+    border-bottom: 1px solid #c0392b;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.modal-body {
+    background-color: #333; /* Fond du corps du modal */
+}
+
+.modal-footer {
+    background-color: #444; /* Fond du pied du modal */
+    border-top: 1px solid #555;
+}
+
+/* Boutons du modal */
+.btn-primary {
+    background-color: #6b1a11; /* Couleur du bouton principal */
+    border-color: #c0392b;
+}
+
+.btn-primary:hover {
+    background-color: #a93226; /* Couleur du bouton principal au survol */
+    border-color: #a93226;
+}
+
+.btn-secondary {
+    background-color: #666; /* Couleur du bouton secondaire */
+    border-color: #666;
+}
+
+.btn-secondary:hover {
+    background-color: #555; /* Couleur du bouton secondaire au survol */
+    border-color: #555;
+}
+
+/* Styles pour les cartes */
+.card {
+    background-color: #444; /* Fond des cartes */
+    color: #fff;
+    border: 1px solid #555; /* Bordure des cartes */
+}
+
+.card-header {
+    background-color: #c0392b; /* Bande rouge en haut des cartes */
+    color: #fff;
+}
+
+.card-body {
+    background-color: #333; /* Fond du corps des cartes */
 }

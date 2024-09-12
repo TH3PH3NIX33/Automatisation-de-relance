@@ -18,6 +18,7 @@
         <div class="container">
             <a href="index.php" class="text-white">Accueil</a>
             <a href="send_email.html" class="text-white">Envoyer des Relances</a>
+            <a href="interfaces_bdd.php" class="text-white">Gestion des Clients</a>
         </div>
     </nav>
 

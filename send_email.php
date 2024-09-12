@@ -132,46 +132,6 @@ function logMessage($message) {
     file_put_contents('log.txt', $logEntry . PHP_EOL, FILE_APPEND);
 }
 
-function addClient($conn, $clientData) {
-    try {
-        $sql = "INSERT INTO `liste_des_clients` (
-            `Sinari Network`, `Société`, `Agence`, `Code`, `Nom`, `Adresse`, `Complément`,
-            `Code Postal`, `Ville`, `Pays`, `Nom court`, `Ville Libre`, `CP Cedex`, `Téléphone`, `Fax`, `Courriel`, 
-            `n° IntraComm.`, `n° SIRET`, `Code Regroupement`, `D/H création`, `Création Par`, 
-            `D/H modif.`, `Modif. par`
-        ) VALUES (
-            :Société, :Agence, :Code, :Nom, :Adresse, :Complément,
-            :Code_Postal, :Ville, :Pays, :Nom_court, :Ville_Libre, :CP_Cedex, :Téléphone, :Fax, :Courriel, 
-            :n°_IntraComm_, :n°_SIRET, :Code_Regroupement, :DhCreation, :CreationPar, 
-            :DhModif, :Modif_par
-        )";
-
-        $stmt = $conn->prepare($sql);
-
-        // Log et bind des valeurs
-        foreach ($clientData as $key => $value) {
-            // Vérifier si la clé existe et si la valeur n'est pas vide
-            if (isset($clientData[$key]) && !empty($clientData[$key])) {
-                logMessage("Binding parameter $key with value: " . ($value === null ? 'NULL' : $value));
-                // Assurez-vous que les chaînes de caractères sont liées en tant que PDO::PARAM_STR
-                $stmt->bindValue($key, $value, PDO::PARAM_STR);
-            } else {
-                // Si la valeur est vide, lier NULL à la place
-                $stmt->bindValue($key, null, PDO::PARAM_NULL);
-            }
-        }
-
-        $stmt->execute();
-        logMessage("Requête d'insertion exécutée avec succès.");
-        return ["status" => "success", "message" => "Client ajouté avec succès."];
-    } catch (PDOException $e) {
-        logMessage("Erreur lors de l'insertion du client : " . $e->getMessage());
-        return ["status" => "error", "message" => "Erreur lors de l'insertion du client : " . $e->getMessage()];
-    }
-}
-
-$response = ['success' => false, 'message' => '', 'logs' => []];
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
@@ -267,38 +227,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         logMessage("Aucun email trouvé pour le code client $code_client_predit.");
                         $response['message'] = 'Aucun email trouvé pour le code client prédit.';
                     }
-                    break;
-
-                case 'addClient':
-                    logMessage("Contenu de \$_POST avant construction de \$clientData : " . print_r($_POST, true));
-
-                    $clientData = [
-                        ':Sinari_Network' => isset($_POST['Sinari_Network']) ? $_POST['Sinari_Network'] : null,
-                        ':Société' => isset($_POST['Société']) ? $_POST['Société'] : null,
-                        ':Agence' => isset($_POST['Agence']) ? $_POST['Agence'] : null,
-                        ':Code' => isset($_POST['Code']) ? $_POST['Code'] : null,
-                        ':Nom' => isset($_POST['Nom']) ? $_POST['Nom'] : null,
-                        ':Adresse' => isset($_POST['Adresse']) ? $_POST['Adresse'] : null,
-                        ':Complément' => isset($_POST['Complément']) ? $_POST['Complément'] : null,
-                        ':Code_Postal' => isset($_POST['Code_Postal']) ? $_POST['Code_Postal'] : null,
-                        ':Ville' => isset($_POST['Ville']) ? $_POST['Ville'] : null,
-                        ':Pays' => isset($_POST['Pays']) ? $_POST['Pays'] : null,
-                        ':Nom_court' => isset($_POST['Nom_court']) ? $_POST['Nom_court'] : null,
-                        ':Ville_Libre' => isset($_POST['Ville_Libre']) ? $_POST['Ville_Libre'] : null,
-                        ':CP_Cedex' => isset($_POST['CP_Cedex']) ? $_POST['CP_Cedex'] : null,
-                        ':Téléphone' => isset($_POST['Téléphone']) ? $_POST['Téléphone'] : null,
-                        ':Fax' => isset($_POST['Fax']) ? $_POST['Fax'] : null,
-                        ':Courriel' => isset($_POST['Courriel']) ? $_POST['Courriel'] : null,
-                        ':n°_IntraComm_' => isset($_POST['n°_IntraComm_']) ? $_POST['n°_IntraComm_'] : null,
-                        ':n°_SIRET' => isset($_POST['n°_SIRET']) ? $_POST['n°_SIRET'] : null,
-                        ':Code_Regroupement' => isset($_POST['Code_Regroupement']) ? $_POST['Code_Regroupement'] : null,
-                        ':DhCreation' => date('Y-m-d H:i:s'),
-                        ':CreationPar' => 'System',
-                        ':DhModif' => date('Y-m-d H:i:s'),
-                        ':Modif_par' => 'System',
-                    ];
-                    
-                    $response = addClient($conn, $clientData);
                     break;
 
                 default:
