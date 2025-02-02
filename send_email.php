@@ -138,7 +138,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         logMessage("Action reçue : $action");
 
         try {
-            // Connexion à la base de données
             $conn = new PDO("mysql:host={$databaseConfig['host']};dbname={$databaseConfig['dbname']}", $databaseConfig['username'], $databaseConfig['password']);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             logMessage("Connexion à la base de données réussie");
@@ -147,11 +146,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'sendEmails':
                     $code_client_predit = 'C006666';
 
-                    // Préparation de la requête SQL pour récupérer l'email du client prédit
                     $stmt = $conn->prepare("SELECT Courriel FROM liste_des_clients WHERE Code = :code_client");
                     $stmt->bindParam(':code_client', $code_client_predit);
 
-                    // Exécuter la requête pour récupérer l'email du client
                     $stmt->execute();
                     $email = $stmt->fetchColumn();
 
@@ -192,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                 $mail = new PHPMailer(true);
 
-                                // Configuration de PHPMailer avec les informations SMTP
+                                
                                 $mail->isSMTP();
                                 $mail->Host = $config['host'];
                                 $mail->Port = $config['port'];

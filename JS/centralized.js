@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     var sendEmailsForm = document.getElementById('sendEmailsForm');
     var responseSection = document.getElementById('responseSection');
-    var logsSection = document.getElementById('logSection'); // Corrected ID for logs section
+    var logsSection = document.getElementById('logSection');
 
     sendEmailsForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent normal form submission
+        event.preventDefault();
         console.log('Formulaire de relance soumis');
 
         var formData = new FormData(sendEmailsForm);
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
             addClientResponse.innerHTML = '<p class="error">Erreur réseau lors de l\'envoi du formulaire.</p>';
         };
 
-        xhr.send(new URLSearchParams(formData)); // Envoi des données après conversion en URLSearchParams
+        xhr.send(new URLSearchParams(formData));
     });
 
     function displayLogs(logs) {
-        logsSection.innerHTML = ''; // Clear previous logs
+        logsSection.innerHTML = '';
         logs.forEach(log => {
             var logElement = document.createElement('p');
             logElement.textContent = log;
